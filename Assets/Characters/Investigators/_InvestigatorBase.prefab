@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6136142257071046813
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5029580118182302420}
+  - component: {fileID: 1465769741732963365}
+  - component: {fileID: 6835385342177360803}
+  - component: {fileID: 5698002099710844272}
+  m_Layer: 0
+  m_Name: _InvestigatorBase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5029580118182302420
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6136142257071046813}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1465769741732963365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6136142257071046813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927ff6bc2e53a5d42b968582f707c6ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  investigatorName: 
+  profession: 
+  home: 
+  fixedPossessions: []
+  abilityName: 
+  abilityText: 
+  theStorySoFar: 
+  stats: {fileID: 6835385342177360803}
+  inventory: {fileID: 5698002099710844272}
+--- !u!114 &6835385342177360803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6136142257071046813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7986a9507ab7d8458294c35acb2b44c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSanity: 0
+  currentSanity: 0
+  maxStamina: 0
+  currentStamina: 0
+  focus: 0
+  speed: 0
+  sneak: 0
+  fight: 0
+  will: 0
+  lore: 0
+  luck: 0
+--- !u!114 &5698002099710844272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6136142257071046813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f391a796a57c4e45b4670e3dfe78280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
