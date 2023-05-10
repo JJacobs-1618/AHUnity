@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class AncientOneStats : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] int maxDoom;
+    [SerializeField] int currentDoom;
+    [SerializeField] int combatRating;
+    [SerializeField] string worshippersText;
+    [SerializeField] List<Monster> worshippers;
+    [SerializeField] string powerName;
+    [SerializeField] string powerDescription;
+    [SerializeField] string startOfBattle;
+    [SerializeField] string attackDescription;
 }

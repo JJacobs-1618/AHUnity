@@ -9,45 +9,19 @@ public class InvestigatorStats : MonoBehaviour
     [SerializeField] int maxStamina;
     [SerializeField] int currentStamina;
     [SerializeField] int focus;
-    [SerializeField] int speed;
-    [SerializeField] int sneak;
-    [SerializeField] int fight;
-    [SerializeField] int will;
-    [SerializeField] int lore;
-    [SerializeField] int luck;
+    [SerializeField] public int speed;
+    [SerializeField] public int sneak;
+    [SerializeField] public int fight;
+    [SerializeField] public int will;
+    [SerializeField] public int lore;
+    [SerializeField] public int luck;
 
-    public void updateCurrentStamina(int delta)
-    {
-        currentStamina += delta;
-    }
-    public void updateCurrentSanity(int delta)
-    {
-        currentSanity += delta;
-    }
-
-    public void updateSpeed(int delta)
-    {
-        speed += delta;
-    }
-    public void updateSneak(int delta)
-    {
-        sneak += delta;
-    }
-    public void updateFight(int delta)
-    {
-        fight += delta;
-    }
-    public void updateWill(int delta)
-    {
-        will += delta;
-    }
-    public void updateLore(int delta)
-    {
-        lore += delta;
-    }
-    public void updateLuck(int delta)
-    {
-        luck += delta;
-    }
+    public int GetMaxSanity() { return maxSanity; }
+    public int GetCurrentSanity() { return currentSanity; }
+    public void updateCurrentSanity(int delta) { currentSanity += delta; }
+    public int GetMaxStamina() { return maxStamina; }
+    public int GetCurrentStamina() { return currentStamina; }
+    public void updateCurrentStamina(int delta) { currentStamina += delta; }
+    public int GetFocus() {  return focus; }
 }
 
