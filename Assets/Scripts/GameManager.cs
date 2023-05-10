@@ -99,7 +99,15 @@ public class GameManager : MonoBehaviour
 
     private void Upkeep()
     {
-        throw new NotImplementedException();
+        Investigator curr = investigators[currentPlayer];
+        if (!curr.performedUpkeep)
+        {
+            curr.controller.Upkeep();
+            currentPlayer = (currentPlayer + 1) % investigatorsGO.Count;
+        } else
+        {
+            pm.UpdateGamePhase(GamePhase.Movement);
+        }
     }
 
     private void Movement()
@@ -116,22 +124,39 @@ public class GameManager : MonoBehaviour
 
     private void ArkhamEncounter()
     {
-        throw new NotImplementedException();
+        Debug.LogError("Unimplemented TODO");
+        pm.UpdateGamePhase(GamePhase.OtherWorldEncounter);
     }
 
     private void OtherWorldEncounter()
     {
-        throw new NotImplementedException();
+        Debug.LogError("Unimplemented TODO");
+        pm.UpdateGamePhase(GamePhase.Mythos);
     }
 
     private void Mythos()
     {
-        throw new NotImplementedException();
+        Debug.LogError("Unimplemented TODO");
+        LoopRefresh();
+        pm.UpdateGamePhase(GamePhase.OtherWorldEncounter);
+
+    }
+
+    private void LoopRefresh()
+    {
+        foreach(Investigator i in investigators)
+        {
+            i.performedUpkeep = false;
+            i.performedMovement = false;
+            i.controller.hasMoved = false;
+            i.performedArkhamEnc = false;
+            i.performedOtherWorldEnc = false;            
+        }
     }
 
     private void DrawAndResolveMythos()
     {
-        throw new NotImplementedException();
+        Debug.LogError("Unimplemented TODO");
     }
 
     private void PlaceInvestigators()
@@ -151,11 +176,27 @@ public class GameManager : MonoBehaviour
     public void GameSetupButton()
     {
         pm.UpdateGamePhase(GamePhase.GameSetup);
+    }//*TESTING* REMOVE
+    public void UpkeepButton()
+    {
+        pm.UpdateGamePhase(GamePhase.Upkeep);
     }
     //*TESTING* REMOVE
     public void MovementButton()
     {
         currentPlayer = firstPlayer;
         pm.UpdateGamePhase(GamePhase.Movement);
+    }
+    public void ArkButton()
+    {
+        pm.UpdateGamePhase(GamePhase.ArkhamEncounter);
+    }
+    public void OWButton()
+    {
+        pm.UpdateGamePhase(GamePhase.OtherWorldEncounter);
+    }
+    public void MythosButton()
+    {
+        pm.UpdateGamePhase(GamePhase.Mythos);
     }
 }

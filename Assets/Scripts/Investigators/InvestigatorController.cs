@@ -10,6 +10,7 @@ public class InvestigatorController : MonoBehaviour, InputActions.IPlayerActions
     InputActions controls;
     [SerializeField] public bool hasMoved;
     [SerializeField] GameObject selection;
+    [SerializeField] PlayerUIController uiController;
 
     private void OnEnable()
     {
@@ -23,6 +24,10 @@ public class InvestigatorController : MonoBehaviour, InputActions.IPlayerActions
     private void OnDisable()
     {
         controls.Player.Disable();
+    }
+    public void Upkeep()
+    {
+        StartCoroutine(PlayerUpkeep());
     }
 
     public void Move()
@@ -43,8 +48,16 @@ public class InvestigatorController : MonoBehaviour, InputActions.IPlayerActions
         }
     }
 
+    private IEnumerator PlayerUpkeep()
+    {
+        uiController.showUpkeep();
+
+        yield return null;
+    }
+
     private IEnumerator PlayerMovement()
     {
+        uiController.showMovement();
         selection = null;
         yield return StartCoroutine(WaitForSelection());
 
@@ -54,8 +67,6 @@ public class InvestigatorController : MonoBehaviour, InputActions.IPlayerActions
             Debug.Log(selection.name);
             this.transform.position = selection.transform.position;
         }
-        hasMoved = true;
-        PhaseManager.instance.UpdateGamePhase(GamePhase.Movement);
         yield return null;
     }
 

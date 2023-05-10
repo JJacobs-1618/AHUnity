@@ -13,9 +13,17 @@ public class Investigator : MonoBehaviour
     [SerializeField] protected string abilityName;
     [SerializeField] protected string abilityText;
     [SerializeField] protected string theStorySoFar;
-    [SerializeField] public InvestigatorStats stats;
+    [SerializeField] protected InvestigatorStats stats;
     [SerializeField] public Inventory inventory;
     [SerializeField] public InvestigatorController controller;
+
+    // Phase Switches
+    [SerializeField] public bool performedUpkeep;
+    [SerializeField] public bool performedMovement;
+    [SerializeField] public bool hasArkhamEnc;
+    [SerializeField] public bool performedArkhamEnc;
+    [SerializeField] public bool hasOtherWorldEnc;
+    [SerializeField] public bool performedOtherWorldEnc;
 
     private void Update()
     {
@@ -34,4 +42,5 @@ public class Investigator : MonoBehaviour
     {
         return home;
     }    
+    public InvestigatorStats GetStats() { return stats; }
 }
