@@ -92,5 +92,9 @@ PrefabInstance:
       propertyPath: dimSym
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8695546273061354745, guid: e1fc38e80c39b4d4ea64b352524b99fc, type: 3}
+      propertyPath: moveType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1fc38e80c39b4d4ea64b352524b99fc, type: 3}
