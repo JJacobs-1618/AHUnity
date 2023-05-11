@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    static GameRule gameRules;
     [SerializeField] PhaseManager pm;
     [SerializeField] GameBoard gameboard;
 
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+        GenerateGameRules(investigatorsGO.Count);
     }
 
     private void OnEnable()
@@ -198,4 +200,77 @@ public class GameManager : MonoBehaviour
     {
         pm.UpdateGamePhase(GamePhase.Mythos);
     }
+
+    private static void GenerateGameRules(int numberOfPlayers)
+    {
+        switch (numberOfPlayers)
+        {
+            case 1:
+                gameRules.numberOfPlayers = 1;
+                gameRules.openGateLimit = 8;
+                gameRules.monsterLimit = 4;
+                gameRules.outskirtsLimit = 7;
+                gameRules.monstersDrawn = 1;
+                break;
+            case 2:
+                gameRules.numberOfPlayers = 2;
+                gameRules.openGateLimit = 8;
+                gameRules.monsterLimit = 5;
+                gameRules.outskirtsLimit = 6;
+                gameRules.monstersDrawn = 1;
+                break;
+            case 3:
+                gameRules.numberOfPlayers = 3;
+                gameRules.openGateLimit = 7;
+                gameRules.monsterLimit = 6;
+                gameRules.outskirtsLimit = 5;
+                gameRules.monstersDrawn = 1;
+                break;
+            case 4:
+                gameRules.numberOfPlayers = 4;
+                gameRules.openGateLimit = 7;
+                gameRules.monsterLimit = 7;
+                gameRules.outskirtsLimit = 4;
+                gameRules.monstersDrawn = 1;
+                break;
+            case 5:
+                gameRules.numberOfPlayers = 5;
+                gameRules.openGateLimit = 6;
+                gameRules.monsterLimit = 8;
+                gameRules.outskirtsLimit = 3;
+                gameRules.monstersDrawn = 2;
+                break;
+            case 6:
+                gameRules.numberOfPlayers = 6;
+                gameRules.openGateLimit = 6;
+                gameRules.monsterLimit = 9;
+                gameRules.outskirtsLimit = 2;
+                gameRules.monstersDrawn = 2;
+                break;
+            case 7:
+                gameRules.numberOfPlayers = 7;
+                gameRules.openGateLimit = 5;
+                gameRules.monsterLimit = 10;
+                gameRules.outskirtsLimit = 1;
+                gameRules.monstersDrawn = 2;
+                break;
+            case 8:
+                gameRules.numberOfPlayers = 8;
+                gameRules.openGateLimit = 5;
+                gameRules.monsterLimit = 11;
+                gameRules.outskirtsLimit = 0;
+                gameRules.monstersDrawn = 2;
+                break;
+        }
+    }
+
+}
+
+struct GameRule
+{
+    public int numberOfPlayers;
+    public int openGateLimit;
+    public int monsterLimit;
+    public int outskirtsLimit;
+    public int monstersDrawn;
 }

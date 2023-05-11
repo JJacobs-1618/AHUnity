@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] string itemName;
+    [SerializeField] string itemDescription;
+    [SerializeField] ItemType itemType;
+    [SerializeField] int msrp;
+    [SerializeField] int requiredHands;
+    [SerializeField] GamePhase usablePhase;
 
-    // Update is called once per frame
-    void Update()
+    public Item()
     {
-        
+        itemName = "Unset";
+        itemDescription = "Unset";
+        itemType = ItemType.Common;
+        msrp = 0;
+        requiredHands = 0;
+        usablePhase = GamePhase.Any;
     }
+}
+
+public enum ItemType
+{
+    Common,
+    Unique,
+    Spell,
+    DeputyRevolver,
+    PatrolWagon
 }

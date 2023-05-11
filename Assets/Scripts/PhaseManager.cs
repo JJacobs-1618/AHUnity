@@ -41,5 +41,6 @@ public enum GamePhase
     ArkhamEncounter,
     OtherWorldEncounter,
     Mythos,
+    Any,
     Paused
 }
