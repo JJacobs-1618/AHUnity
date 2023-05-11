@@ -53,7 +53,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7002345833540436714, guid: e948c3820066d9442b894be5d7a80e84, type: 3}
       propertyPath: m_Name
-      value: _SpellBase
+      value: Spl_FindGate
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021523883669635101, guid: e948c3820066d9442b894be5d7a80e84, type: 3}
+      propertyPath: itemName
+      value: Find Gate
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e948c3820066d9442b894be5d7a80e84, type: 3}

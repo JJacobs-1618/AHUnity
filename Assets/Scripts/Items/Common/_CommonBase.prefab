@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Unset
+  damageType: 2
   itemDescription: Unset
   itemType: 0
   msrp: 0
   requiredHands: 0
-  usablePhase: 6
+  usablePhase: 7

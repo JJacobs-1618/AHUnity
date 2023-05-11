@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1248935518490400626, guid: e2b68ea7a50d86a41894f97996ff3742, type: 3}
       propertyPath: m_Name
-      value: _CommonBase
+      value: Cmn_Cross
       objectReference: {fileID: 0}
     - target: {fileID: 4240169455971434260, guid: e2b68ea7a50d86a41894f97996ff3742, type: 3}
       propertyPath: m_RootOrder
@@ -54,6 +54,31 @@ PrefabInstance:
     - target: {fileID: 4240169455971434260, guid: e2b68ea7a50d86a41894f97996ff3742, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8957302140985619214, guid: e2b68ea7a50d86a41894f97996ff3742, type: 3}
+      propertyPath: msrp
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8957302140985619214, guid: e2b68ea7a50d86a41894f97996ff3742, type: 3}
+      propertyPath: itemName
+      value: Cross
+      objectReference: {fileID: 0}
+    - target: {fileID: 8957302140985619214, guid: e2b68ea7a50d86a41894f97996ff3742, type: 3}
+      propertyPath: damageType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8957302140985619214, guid: e2b68ea7a50d86a41894f97996ff3742, type: 3}
+      propertyPath: usablePhase
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8957302140985619214, guid: e2b68ea7a50d86a41894f97996ff3742, type: 3}
+      propertyPath: requiredHands
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8957302140985619214, guid: e2b68ea7a50d86a41894f97996ff3742, type: 3}
+      propertyPath: itemDescription
+      value: +0 to <b>Combat checks</b>\n<i>(+3 if Opponent is <b>Undead</b>)</i>\n\n+1
+        to <b>Horror checks</b>
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b68ea7a50d86a41894f97996ff3742, type: 3}

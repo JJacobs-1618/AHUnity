@@ -38,6 +38,7 @@ public enum GamePhase
     GameSetup,
     Upkeep,
     Movement,
+    Combat,
     ArkhamEncounter,
     OtherWorldEncounter,
     Mythos,

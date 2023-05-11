@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1248935518490400626, guid: e2b68ea7a50d86a41894f97996ff3742, type: 3}
       propertyPath: m_Name
-      value: _CommonBase
+      value: Cmn_AncientTome
       objectReference: {fileID: 0}
     - target: {fileID: 4240169455971434260, guid: e2b68ea7a50d86a41894f97996ff3742, type: 3}
       propertyPath: m_RootOrder
@@ -54,6 +54,20 @@ PrefabInstance:
     - target: {fileID: 4240169455971434260, guid: e2b68ea7a50d86a41894f97996ff3742, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8957302140985619214, guid: e2b68ea7a50d86a41894f97996ff3742, type: 3}
+      propertyPath: msrp
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8957302140985619214, guid: e2b68ea7a50d86a41894f97996ff3742, type: 3}
+      propertyPath: itemName
+      value: Ancient Tome
+      objectReference: {fileID: 0}
+    - target: {fileID: 8957302140985619214, guid: e2b68ea7a50d86a41894f97996ff3742, type: 3}
+      propertyPath: itemDescription
+      value: Exhaust and spend 2 movement points to make a <b>Lore (-1) check.</b>
+        If you pass, draw 1 Spell and discard Ancient Tome. if you fail, nothing
+        happens.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b68ea7a50d86a41894f97996ff3742, type: 3}

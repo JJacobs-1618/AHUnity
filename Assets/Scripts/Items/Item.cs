@@ -5,20 +5,22 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     [SerializeField] string itemName;
+    [SerializeField] DamageType damageType;
     [SerializeField] string itemDescription;
     [SerializeField] ItemType itemType;
     [SerializeField] int msrp;
     [SerializeField] int requiredHands;
-    [SerializeField] GamePhase usablePhase;
+    [SerializeField] bool isExhausted;
 
     public Item()
     {
         itemName = "Unset";
+        damageType = DamageType.None;
         itemDescription = "Unset";
         itemType = ItemType.Common;
         msrp = 0;
         requiredHands = 0;
-        usablePhase = GamePhase.Any;
+        isExhausted = false;
     }
 }
 
@@ -29,4 +31,11 @@ public enum ItemType
     Spell,
     DeputyRevolver,
     PatrolWagon
+}
+
+public enum DamageType
+{
+    Physical,
+    Magical,
+    None
 }

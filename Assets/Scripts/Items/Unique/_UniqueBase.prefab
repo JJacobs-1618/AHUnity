@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Unset
   itemDescription: Unset
-  itemType: 0
+  itemType: 1
   msrp: 0
   requiredHands: 0
   usablePhase: 6
