@@ -4,15 +4,45 @@ using UnityEngine;
 
 public class MonsterStats : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] int awareness;
+    [SerializeField] int horrorRating;
+    [SerializeField] int sanityDamage;
+    [SerializeField] int combatRating;
+    [SerializeField] int staminaDamage;
+    [SerializeField] int toughness;
+
+    public MonsterStats()
     {
-        
+        awareness = 0;
+        horrorRating = 0;
+        sanityDamage = 0;
+        combatRating = 0;
+        staminaDamage = 0;
+        toughness = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    public int GetAwareness()
     {
-        
+        return awareness;
+    }
+    public int GetHorrorRating()
+    {
+        return horrorRating;
+    }
+    public int GetSanityDamage()
+    {
+        return sanityDamage;
+    }
+    public int GetCombatRating()
+    {
+        return combatRating;
+    }
+    public int GetStaminaDamage()
+    {
+        return staminaDamage;
+    }
+    public int GetToughness()
+    {
+        return toughness;
     }
 }

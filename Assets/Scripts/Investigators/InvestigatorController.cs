@@ -67,7 +67,7 @@ public class InvestigatorController : MonoBehaviour, InputActions.IPlayerActions
         else
         {
             Debug.Log(selection.name);
-            this.transform.position = selection.transform.position;
+            this.transform.position = selection.transform.position;            
         }
         yield return null;
     }

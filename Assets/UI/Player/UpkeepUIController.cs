@@ -20,6 +20,7 @@ public class UpkeepUIController : MonoBehaviour
     {
         investigator.performedUpkeep = true;
         this.uiController.hideUpkeep();
+        investigator.HideUI();
         PhaseManager.instance.UpdateGamePhase(GamePhase.Upkeep);
     }
 }

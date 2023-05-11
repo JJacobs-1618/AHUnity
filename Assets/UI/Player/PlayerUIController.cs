@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class PlayerUIController : MonoBehaviour
 {
-    [SerializeField] GameObject mainPlayerUI;
-    [SerializeField] GameObject statSliderUI;
+    [SerializeField] GameObject playerDetailsUI;
     [SerializeField] GameObject upkeepUI;
     [SerializeField] GameObject movementUI;
     [SerializeField] GameObject arkhamEncUI;
@@ -16,7 +15,7 @@ public class PlayerUIController : MonoBehaviour
 
     private void Start()
     {
-        statSliderUI.SetActive(false);
+        playerDetailsUI.SetActive(true);
         upkeepUI.SetActive(false);
         movementUI.SetActive(false);
         arkhamEncUI.SetActive(false);
@@ -24,19 +23,7 @@ public class PlayerUIController : MonoBehaviour
         mythosUI.SetActive(false);
     }
 
-
-
-
-
-
-
-
-
-
-
     public Investigator GetInvestigator() { return investigator; }
-    public void showStatSlider() { statSliderUI.SetActive(true); }
-    public void hideStatSlider() { statSliderUI.SetActive(false); }
     public void showUpkeep() { upkeepUI.SetActive(true); }
     public void hideUpkeep() { upkeepUI.SetActive(false); }
     public void showMovement() 

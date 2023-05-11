@@ -104,6 +104,7 @@ public class GameManager : MonoBehaviour
         Investigator curr = investigators[currentPlayer];
         if (!curr.performedUpkeep)
         {
+            investigators[currentPlayer].ShowUI();
             curr.controller.Upkeep();
             currentPlayer = (currentPlayer + 1) % investigatorsGO.Count;
         } else
@@ -116,6 +117,7 @@ public class GameManager : MonoBehaviour
     {
         if (!investigators[currentPlayer].controller.hasMoved)
         {
+            investigators[currentPlayer].ShowUI();
             investigators[currentPlayer].controller.Move(); /* Takes control in controller, yielding control after movement. */
             currentPlayer = (currentPlayer + 1) % investigatorsGO.Count;
         } else
@@ -158,6 +160,7 @@ public class GameManager : MonoBehaviour
     private void DrawAndResolveMythos()
     {
         Debug.LogError("Unimplemented TODO");
+        pm.UpdateGamePhase(GamePhase.Upkeep);
     }
 
     private void PlaceInvestigators()

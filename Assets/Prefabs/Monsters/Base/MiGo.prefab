@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &287885129053463980
+--- !u!1001 &963626938697349263
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,24 +9,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3066350564566972831, guid: e1fc38e80c39b4d4ea64b352524b99fc, type: 3}
       propertyPath: flavorText
-      value: <i>The stench was unbearable, and rising to the surface came a terible
-        cry, "Tekeli-li! Tekeli-li!"</i>
+      value: If you pass a <b>Combat check</b> against Mi-Go, return it to the box
+        and draw 1 Unique item.
       objectReference: {fileID: 0}
     - target: {fileID: 3066350564566972831, guid: e1fc38e80c39b4d4ea64b352524b99fc, type: 3}
       propertyPath: monsterName
-      value: Shoggoth
+      value: Mi-Go
       objectReference: {fileID: 0}
     - target: {fileID: 5112281577889618558, guid: e1fc38e80c39b4d4ea64b352524b99fc, type: 3}
       propertyPath: awareness
-      value: -1
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 5112281577889618558, guid: e1fc38e80c39b4d4ea64b352524b99fc, type: 3}
       propertyPath: toughness
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5112281577889618558, guid: e1fc38e80c39b4d4ea64b352524b99fc, type: 3}
-      propertyPath: combatRating
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5112281577889618558, guid: e1fc38e80c39b4d4ea64b352524b99fc, type: 3}
       propertyPath: horrorRating
@@ -34,11 +30,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5112281577889618558, guid: e1fc38e80c39b4d4ea64b352524b99fc, type: 3}
       propertyPath: sanityDamage
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5112281577889618558, guid: e1fc38e80c39b4d4ea64b352524b99fc, type: 3}
       propertyPath: staminaDamage
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7230665357549200915, guid: e1fc38e80c39b4d4ea64b352524b99fc, type: 3}
       propertyPath: m_RootOrder
@@ -86,11 +82,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8495132382448057889, guid: e1fc38e80c39b4d4ea64b352524b99fc, type: 3}
       propertyPath: m_Name
-      value: Shoggoth
+      value: MiGo
       objectReference: {fileID: 0}
     - target: {fileID: 8695546273061354745, guid: e1fc38e80c39b4d4ea64b352524b99fc, type: 3}
       propertyPath: dimSym
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1fc38e80c39b4d4ea64b352524b99fc, type: 3}

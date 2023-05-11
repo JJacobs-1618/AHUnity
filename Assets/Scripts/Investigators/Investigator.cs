@@ -16,6 +16,7 @@ public class Investigator : MonoBehaviour
     [SerializeField] protected InvestigatorStats stats;
     [SerializeField] public Inventory inventory;
     [SerializeField] public InvestigatorController controller;
+    [SerializeField] public GameObject playerUI;
 
     // Phase Switches
     [SerializeField] public bool performedUpkeep;
@@ -25,10 +26,16 @@ public class Investigator : MonoBehaviour
     [SerializeField] public bool hasOtherWorldEnc;
     [SerializeField] public bool performedOtherWorldEnc;
 
+    private void Start()
+    {
+        playerUI.SetActive(false);
+    }
+
     private void Update()
     {
         
     }
+
 
     public string GetName()
     {
@@ -43,4 +50,14 @@ public class Investigator : MonoBehaviour
         return home;
     }    
     public InvestigatorStats GetStats() { return stats; }
+    public Inventory GetInventory() { return inventory; }
+
+    public void ShowUI()
+    {
+        playerUI.SetActive(true);
+    }
+    public void HideUI()
+    {
+        playerUI.SetActive(false);
+    }
 }

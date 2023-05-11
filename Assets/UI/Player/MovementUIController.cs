@@ -33,6 +33,7 @@ public class MovementUIController : MonoBehaviour
         investigator.controller.hasMoved = true;
         investigator.performedMovement = true;
         uiController.hideMovement();
+        investigator.HideUI();
         PhaseManager.instance.UpdateGamePhase(GamePhase.Movement);
     }
 }
