@@ -44,7 +44,9 @@ public class InvestigatorController : MonoBehaviour, InputActions.IPlayerActions
                 selected = true;
                 yield return null;
             }
-            yield return new WaitForSeconds(.25f);
+            if (hasMoved == true)
+                yield break;
+            yield return new WaitForSeconds(.1f);
         }
     }
 
@@ -84,5 +86,9 @@ public class InvestigatorController : MonoBehaviour, InputActions.IPlayerActions
     public void OnUnselect(InputAction.CallbackContext context)
     {
         throw new NotImplementedException();
+    }
+    public void CancelSelection()
+    {
+        StopAllCoroutines();
     }
 }

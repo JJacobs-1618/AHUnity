@@ -138,8 +138,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.LogError("Unimplemented TODO");
         LoopRefresh();
-        pm.UpdateGamePhase(GamePhase.OtherWorldEncounter);
-
+        pm.UpdateGamePhase(GamePhase.Upkeep);
     }
 
     private void LoopRefresh()
