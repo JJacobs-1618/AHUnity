@@ -16,6 +16,7 @@ public class Investigator : MonoBehaviour
     [SerializeField] protected InvestigatorStats stats;
     [SerializeField] public Inventory inventory;
     [SerializeField] public InvestigatorController controller;
+    [SerializeField] protected PlayerUIController uiController;
     [SerializeField] public GameObject playerUI;
 
     // Phase Switches
@@ -28,6 +29,7 @@ public class Investigator : MonoBehaviour
 
     private void Start()
     {
+        uiController = playerUI.GetComponent<PlayerUIController>();
         playerUI.SetActive(false);
     }
 
@@ -36,7 +38,10 @@ public class Investigator : MonoBehaviour
         
     }
 
-
+    public void SetCurrentLocation(GameTile location)
+    {
+        controller.currentLocation = location;
+    }
     public string GetName()
     {
         return investigatorName;
@@ -59,5 +64,47 @@ public class Investigator : MonoBehaviour
     public void HideUI()
     {
         playerUI.SetActive(false);
+    }
+
+
+    public void PlayerTurn()
+    {
+        switch (PhaseManager.instance.GetCurrentGamePhase())
+        {
+            case GamePhase.GameSetup:
+                break;
+            case GamePhase.Upkeep:
+                break;
+            case GamePhase.Movement:
+                MovementPhase();
+                break;
+            case GamePhase.Combat:
+                break;
+            case GamePhase.ArkhamEncounter:
+                break;
+            case GamePhase.OtherWorldEncounter:
+                break;
+            case GamePhase.Mythos:
+                break;
+            case GamePhase.Any:
+                break;
+            case GamePhase.Paused:
+                break;
+        }
+    }
+
+    private void MovementPhase()
+    {
+        // Show UI
+        ShowUI();
+        uiController.showMovement();
+        // Show locations in Range
+        List<GameTile> tilesInRange = GameBoard.instance.GetLocationsInRange(controller.currentLocation, stats.speed);
+        foreach(GameTile tile in tilesInRange)
+        {
+            tile.ShowUI();
+        }
+        // Let move
+        controller.Move(tilesInRange);
     }
 }

@@ -36,15 +36,37 @@ public class GameBoard : MonoBehaviour
         }
     }
 
-    public Vector3 GetLocation(string location)
+    public GameObject GetLocation(string location)
     {
-        Vector3 returnVec = new Vector3();
+        GameObject retVal = null;
         foreach(GameObject go in locations)
         {
-            Location l = go.GetComponent<Location>();
-            if (l.GetName() == location)
-                returnVec = go.transform.position;
+            if (location == go.GetComponent<Location>().GetName())
+            {
+                retVal = go;
+                break; ;
+            }
         }
-        return returnVec;
+        return retVal;
+    }
+
+    public List<GameTile> GetLocationsInRange(GameTile starting, int movementPoints)
+    {
+        List<GameTile> retVal = new List<GameTile>();
+        retVal.Add(starting);
+
+        for(int i = 0; i < movementPoints; i++)
+        {
+            int retValCount = retVal.Count;
+            for(int j = 0; j < retValCount; j++)
+            {
+                foreach (GameTile tile in retVal[j].GetConnectedLocations())
+                {
+                    if (!retVal.Contains(tile)) retVal.Add(tile);
+                }
+            }
+        }
+
+        return retVal;
     }
 }

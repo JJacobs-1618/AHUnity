@@ -117,8 +117,9 @@ public class GameManager : MonoBehaviour
     {
         if (!investigators[currentPlayer].controller.hasMoved)
         {
-            investigators[currentPlayer].ShowUI();
-            investigators[currentPlayer].controller.Move(); /* Takes control in controller, yielding control after movement. */
+            //investigators[currentPlayer].ShowUI();
+            //investigators[currentPlayer].controller.Move(); /* Takes control in controller, yielding control after movement. */
+            investigators[currentPlayer].PlayerTurn();
             currentPlayer = (currentPlayer + 1) % investigatorsGO.Count;
         } else
         {
@@ -171,7 +172,8 @@ public class GameManager : MonoBehaviour
             {
                 Investigator i = go.GetComponent<Investigator>();
                 investigators.Add(i);
-                go.transform.position = GameBoard.instance.GetLocation(i.GetHome());
+                go.transform.position = GameBoard.instance.GetLocation(i.GetHome()).transform.position;
+                i.SetCurrentLocation(GameBoard.instance.GetLocation(i.GetHome()).GetComponent<GameTile>());
             }
         }
     }

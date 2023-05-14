@@ -11,7 +11,13 @@ public class InvestigatorController : MonoBehaviour, InputActions.IPlayerActions
     [SerializeField] public bool hasMoved;
     [SerializeField] GameObject selection;
     [SerializeField] PlayerUIController uiController;
+    List<GameTile> inRange;
+    [SerializeField] public GameTile currentLocation;
 
+    private void Start()
+    {
+        inRange = new List<GameTile>();
+    }
     private void OnEnable()
     {
         if (controls == null)
@@ -30,8 +36,9 @@ public class InvestigatorController : MonoBehaviour, InputActions.IPlayerActions
         StartCoroutine(PlayerUpkeep());
     }
 
-    public void Move()
+    public void Move(List<GameTile> tiles)
     {
+        inRange = tiles;
         StartCoroutine(PlayerMovement());
     }
     IEnumerator WaitForSelection()
@@ -67,19 +74,49 @@ public class InvestigatorController : MonoBehaviour, InputActions.IPlayerActions
         else
         {
             Debug.Log(selection.name);
-            this.transform.position = selection.transform.position;            
+            this.transform.position = selection.transform.position;
+            currentLocation = selection.GetComponent<GameTile>();
+            if (currentLocation == null) Debug.LogError("Error setting Current Location in Controller");
         }
         yield return null;
     }
 
     public void OnSelect(InputAction.CallbackContext context)
     {
+        switch (PhaseManager.instance.GetCurrentGamePhase())
+        {
+            case GamePhase.GameSetup:
+                break;
+            case GamePhase.Upkeep:
+                break;
+            case GamePhase.Movement:
+                MovementSelection();
+                break;
+            case GamePhase.Combat:
+                break;
+            case GamePhase.ArkhamEncounter:
+                break;
+            case GamePhase.OtherWorldEncounter:
+                break;
+            case GamePhase.Mythos:
+                break;
+            case GamePhase.Any:
+                break;
+            case GamePhase.Paused:
+                break;
+        }
+    }
+
+    private void MovementSelection()
+    {
         int layerMask = 1 << 8;
         RaycastHit hit;
         Vector3 mousePos = Mouse.current.position.ReadValue();
-        if(Physics.Raycast(Camera.main.ScreenPointToRay(mousePos), out hit, Mathf.Infinity, layerMask))
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePos), out hit, Mathf.Infinity, layerMask))
         {
             selection = hit.collider.gameObject;
+            if (!inRange.Contains(selection.GetComponent<GameTile>()))
+                selection = null;
         }
     }
 
@@ -90,5 +127,9 @@ public class InvestigatorController : MonoBehaviour, InputActions.IPlayerActions
     public void CancelSelection()
     {
         StopAllCoroutines();
+    }
+    public void SetCurrentLocation(GameTile location)
+    {
+        currentLocation = location;
     }
 }
