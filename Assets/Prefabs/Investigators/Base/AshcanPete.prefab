@@ -96,11 +96,27 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6835385342177360803, guid: 4e769afa4706c0140944589f5b2d1dd5, type: 3}
+      propertyPath: luckStart
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835385342177360803, guid: 4e769afa4706c0140944589f5b2d1dd5, type: 3}
       propertyPath: maxSanity
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6835385342177360803, guid: 4e769afa4706c0140944589f5b2d1dd5, type: 3}
+      propertyPath: willStart
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835385342177360803, guid: 4e769afa4706c0140944589f5b2d1dd5, type: 3}
+      propertyPath: fightStart
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835385342177360803, guid: 4e769afa4706c0140944589f5b2d1dd5, type: 3}
       propertyPath: maxStamina
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835385342177360803, guid: 4e769afa4706c0140944589f5b2d1dd5, type: 3}
+      propertyPath: sneakStart
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6835385342177360803, guid: 4e769afa4706c0140944589f5b2d1dd5, type: 3}

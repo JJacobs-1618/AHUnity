@@ -20,6 +20,8 @@ public class PhaseManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+        lastPhase = GamePhase.GameSetup;
+        currentPhase = GamePhase.GameSetup;
     }
 
     public void UpdateGamePhase(GamePhase update)
@@ -36,6 +38,7 @@ public class PhaseManager : MonoBehaviour
 public enum GamePhase
 {
     GameSetup,
+    InvestigatorSetup,
     Upkeep,
     Movement,
     Combat,

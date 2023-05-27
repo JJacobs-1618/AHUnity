@@ -6,18 +6,20 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    static GameRule gameRules;
+    [Header("GameInformation")]
+    [SerializeField] static GameRule gameRules;
     [SerializeField] PhaseManager pm;
     [SerializeField] GameBoard gameboard;
-
+    [Header("AncientOne")]
+    [SerializeField] GameObject ancientOne;
+    [Header("PlayerInformation")]
     [SerializeField] List<GameObject> investigatorsGO;
     [SerializeField] List<Investigator> investigators;
     [SerializeField] int firstPlayer;
     [SerializeField] int currentPlayer;
+    [Header("MonsterInformation")]
     [SerializeField] List<GameObject> monstersOnBoard;
     [SerializeField] List<GameObject> monstersInOutskirts;
-
-    [SerializeField] GameObject ancientOne;
 
     private void Awake()
     {
@@ -38,12 +40,12 @@ public class GameManager : MonoBehaviour
 
     private void OnDisable()
     {
-        PhaseManager.OnGamePhaseChanged += Pm_OnGamePhaseChanged;
+        PhaseManager.OnGamePhaseChanged -= Pm_OnGamePhaseChanged;
     }
 
     private void OnDestroy()
     {
-        PhaseManager.OnGamePhaseChanged += Pm_OnGamePhaseChanged;
+        PhaseManager.OnGamePhaseChanged -= Pm_OnGamePhaseChanged;
     }
 
 
@@ -59,6 +61,9 @@ public class GameManager : MonoBehaviour
         {
             case GamePhase.GameSetup:
                 GameSetup();
+                break;
+            case GamePhase.InvestigatorSetup:
+                InvestigatorSetup();
                 break;
             case GamePhase.Upkeep:
                 Upkeep();
@@ -87,16 +92,28 @@ public class GameManager : MonoBehaviour
         // choose first player
         firstPlayer = UnityEngine.Random.Range(0, investigators.Count);
         // Reveal ancient one
-        // shuffle decks
-        // give possessions
-        // give random items
-        // investigator setup
-
+        // shuffle decks        
         // monster cup (w/ or w/o masks)
         // place investigators
-        PlaceInvestigators();
-        // draw/resolve mythos
-        DrawAndResolveMythos();
+        PlaceInvestigators(); 
+        pm.UpdateGamePhase(GamePhase.InvestigatorSetup);
+    }
+
+    private void InvestigatorSetup()
+    {
+        Investigator curr = investigators[currentPlayer];
+        if (!curr.performedSetup)
+        {
+            // give possessions
+            // give random items
+            curr.PlayerTurn();
+            currentPlayer = (currentPlayer + 1) % investigatorsGO.Count;
+        }
+        else
+        {
+            // draw/resolve mythos
+            DrawAndResolveMythos();
+        }
     }
 
     private void Upkeep()
@@ -104,8 +121,7 @@ public class GameManager : MonoBehaviour
         Investigator curr = investigators[currentPlayer];
         if (!curr.performedUpkeep)
         {
-            investigators[currentPlayer].ShowUI();
-            curr.controller.Upkeep();
+            curr.PlayerTurn();
             currentPlayer = (currentPlayer + 1) % investigatorsGO.Count;
         } else
         {
@@ -115,7 +131,7 @@ public class GameManager : MonoBehaviour
 
     private void Movement()
     {
-        if (!investigators[currentPlayer].controller.hasMoved)
+        if (!investigators[currentPlayer]._investigatorController.hasMoved)
         {
             //investigators[currentPlayer].ShowUI();
             //investigators[currentPlayer].controller.Move(); /* Takes control in controller, yielding control after movement. */
@@ -152,7 +168,7 @@ public class GameManager : MonoBehaviour
         {
             i.performedUpkeep = false;
             i.performedMovement = false;
-            i.controller.hasMoved = false;
+            i._investigatorController.hasMoved = false;
             i.performedArkhamEnc = false;
             i.performedOtherWorldEnc = false;            
         }

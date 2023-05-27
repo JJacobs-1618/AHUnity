@@ -25,12 +25,12 @@ public class MovementUIController : MonoBehaviour
     }
     public void UpdateMovementPointText()
     {
-        movementPointText.text = stats.speed.ToString(); // Add other movement modifiers, too
+        movementPointText.text = stats.GetSpeed().ToString(); // Add other movement modifiers, too
     }
     public void Continue()
     {
-        investigator.controller.CancelSelection();
-        investigator.controller.hasMoved = true;
+        investigator._investigatorController.CancelSelection();
+        investigator._investigatorController.hasMoved = true;
         investigator.performedMovement = true;
         uiController.hideMovement();
         investigator.HideUI();

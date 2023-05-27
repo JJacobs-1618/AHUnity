@@ -5,21 +5,29 @@ using UnityEngine;
 
 public class Investigator : MonoBehaviour
 {
+    [Header("Investigator Info")]
     [SerializeField] protected string investigatorName;
     [SerializeField] protected string profession;
     [SerializeField] protected string home;
+    [SerializeField] public Inventory inventory;
     [SerializeField] protected List<Item> fixedPossessions;
     [SerializeField] protected Dictionary<int, string> randomPossessions;
+    [SerializeField] protected InvestigatorStats stats;
+
+    [Header("Investigator Ability")]
     [SerializeField] protected string abilityName;
     [SerializeField] protected string abilityText;
-    [SerializeField] protected string theStorySoFar;
-    [SerializeField] protected InvestigatorStats stats;
-    [SerializeField] public Inventory inventory;
-    [SerializeField] public InvestigatorController controller;
-    [SerializeField] protected PlayerUIController uiController;
-    [SerializeField] public GameObject playerUI;
 
-    // Phase Switches
+    [Header("Investigator Story")]
+    [SerializeField] protected string theStorySoFar;
+
+    [Header("Controllers")]
+    [SerializeField] public InvestigatorController _investigatorController;
+    [SerializeField] public GameObject playerUI;
+    [SerializeField] protected PlayerUIController _uiController;
+
+    [Header("Phase Switches")]
+    [SerializeField] public bool performedSetup;
     [SerializeField] public bool performedUpkeep;
     [SerializeField] public bool performedMovement;
     [SerializeField] public bool hasArkhamEnc;
@@ -29,18 +37,23 @@ public class Investigator : MonoBehaviour
 
     private void Start()
     {
-        uiController = playerUI.GetComponent<PlayerUIController>();
-        playerUI.SetActive(false);
-    }
+        if (_investigatorController == null)
+        {
+            if ((_investigatorController = GetComponent<InvestigatorController>()) == null)
+                Debug.LogError("Investigator: Unable to set InvestigatorController on " + investigatorName);
+        }
+        if (_uiController == null)
+        {
+            if ((_uiController = GetComponent<PlayerUIController>()) == null)
+                Debug.LogError("Investigator: Unable to set UIController on " + investigatorName);
+        }
 
-    private void Update()
-    {
-        
+        _uiController.gameObject.SetActive(false);
     }
 
     public void SetCurrentLocation(GameTile location)
     {
-        controller.currentLocation = location;
+        _investigatorController.currentLocation = location;
     }
     public string GetName()
     {
@@ -73,7 +86,11 @@ public class Investigator : MonoBehaviour
         {
             case GamePhase.GameSetup:
                 break;
+            case GamePhase.InvestigatorSetup:
+                InvestigatorSetup();
+                break;
             case GamePhase.Upkeep:
+                UpkeepPhase();
                 break;
             case GamePhase.Movement:
                 MovementPhase();
@@ -93,18 +110,36 @@ public class Investigator : MonoBehaviour
         }
     }
 
+    private void UpkeepPhase()
+    {
+        ShowUI();
+        _uiController.showUpkeep();
+    }
+
     private void MovementPhase()
     {
         // Show UI
         ShowUI();
-        uiController.showMovement();
+        _uiController.showMovement();
         // Show locations in Range
-        List<GameTile> tilesInRange = GameBoard.instance.GetLocationsInRange(controller.currentLocation, stats.speed);
+        List<GameTile> tilesInRange = GameBoard.instance.GetLocationsInRange(_investigatorController.currentLocation, stats.GetSpeed());
         foreach(GameTile tile in tilesInRange)
         {
             tile.ShowUI();
         }
         // Let move
-        controller.Move(tilesInRange);
+        _investigatorController.Move(tilesInRange);
+    }
+
+    internal void InvestigatorSetup()
+    {
+        // Show sliders and set, 0 focus necessary.
+        ShowUI();
+        _uiController.ShowSetupSlider();        
+    }
+
+    public void CompleteUpkeep()
+    {
+
     }
 }

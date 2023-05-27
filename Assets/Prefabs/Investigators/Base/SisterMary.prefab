@@ -96,12 +96,32 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6835385342177360803, guid: 4e769afa4706c0140944589f5b2d1dd5, type: 3}
+      propertyPath: loreStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835385342177360803, guid: 4e769afa4706c0140944589f5b2d1dd5, type: 3}
+      propertyPath: luckStart
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835385342177360803, guid: 4e769afa4706c0140944589f5b2d1dd5, type: 3}
       propertyPath: maxSanity
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6835385342177360803, guid: 4e769afa4706c0140944589f5b2d1dd5, type: 3}
+      propertyPath: willStart
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835385342177360803, guid: 4e769afa4706c0140944589f5b2d1dd5, type: 3}
       propertyPath: maxStamina
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835385342177360803, guid: 4e769afa4706c0140944589f5b2d1dd5, type: 3}
+      propertyPath: sneakStart
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835385342177360803, guid: 4e769afa4706c0140944589f5b2d1dd5, type: 3}
+      propertyPath: speedStart
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6835385342177360803, guid: 4e769afa4706c0140944589f5b2d1dd5, type: 3}
       propertyPath: currentSanity

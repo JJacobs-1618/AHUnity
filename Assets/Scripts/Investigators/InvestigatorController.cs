@@ -59,7 +59,6 @@ public class InvestigatorController : MonoBehaviour, InputActions.IPlayerActions
 
     private IEnumerator PlayerUpkeep()
     {
-        uiController.showUpkeep();
 
         yield return null;
     }

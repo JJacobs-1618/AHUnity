@@ -149,14 +149,16 @@ MonoBehaviour:
   investigatorName: Base
   profession: Base
   home: Base
+  inventory: {fileID: 5698002099710844272}
   fixedPossessions: []
+  stats: {fileID: 6835385342177360803}
   abilityName: Base
   abilityText: Base
   theStorySoFar: Base
-  stats: {fileID: 6835385342177360803}
-  inventory: {fileID: 5698002099710844272}
-  controller: {fileID: 5878767979194372455}
+  _investigatorController: {fileID: 5878767979194372455}
   playerUI: {fileID: 1680623516038482676}
+  _uiController: {fileID: 2938000294307872921}
+  performedSetup: 0
   performedUpkeep: 0
   performedMovement: 0
   hasArkhamEnc: 0
@@ -180,12 +182,18 @@ MonoBehaviour:
   maxStamina: 0
   currentStamina: 0
   focus: 0
-  speed: 0
-  sneak: 0
-  fight: 0
-  will: 0
-  lore: 0
-  luck: 0
+  speedStart: 0
+  sneakStart: 0
+  fightStart: 0
+  willStart: 0
+  loreStart: 0
+  luckStart: 0
+  currSpeed: 0
+  currSneak: 0
+  currFight: 0
+  currWill: 0
+  currLore: 0
+  currLuck: 0
 --- !u!114 &5698002099710844272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +225,7 @@ MonoBehaviour:
   hasMoved: 0
   selection: {fileID: 0}
   uiController: {fileID: 2938000294307872921}
+  currentLocation: {fileID: 0}
 --- !u!1001 &4878354541072474738
 PrefabInstance:
   m_ObjectHideFlags: 0
