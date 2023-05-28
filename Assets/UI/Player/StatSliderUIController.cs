@@ -56,6 +56,8 @@ public class StatSliderUIController : MonoBehaviour, IUpkeepable
         updatedSpeedSneak = false;
         updatedFightWill = false;
         updatedLoreLuck = false;
+
+        availableFocusText.text = availableFocus.ToString();
     }
     public void InitialSetup()
     {

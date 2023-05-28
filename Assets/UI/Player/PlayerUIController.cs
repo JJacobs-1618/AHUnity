@@ -30,7 +30,8 @@ public class PlayerUIController : MonoBehaviour
     public void showUpkeep() 
     {
         statSliderUI.SetActive(true);
-        upkeepUI.SetActive(true); 
+        statSliderUI.GetComponent<StatSliderUIController>().StartUpkeep();
+        upkeepUI.SetActive(true);
     }
     public void hideUpkeep() { upkeepUI.SetActive(false); }
     public void showMovement() 

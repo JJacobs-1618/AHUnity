@@ -135,7 +135,7 @@ public class Investigator : MonoBehaviour
     {
         // Show sliders and set, 0 focus necessary.
         ShowUI();
-        _uiController.ShowSetupSlider();        
+        _uiController.ShowSetupSlider();
     }
 
     public void CompleteUpkeep()
