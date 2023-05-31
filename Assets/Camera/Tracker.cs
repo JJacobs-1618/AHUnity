@@ -40,7 +40,7 @@ public class Tracker : MonoBehaviour, InputActions.ICameraActions
     private readonly float maxRotClamp = -0.5f;
 
     // Camera test
-    CinemachineFreeLook vc;
+    [SerializeField] CinemachineFreeLook vc;
     [Header("References")]
     [SerializeField] Transform orientation;
     [SerializeField] Transform tracker;
@@ -82,6 +82,14 @@ public class Tracker : MonoBehaviour, InputActions.ICameraActions
         this.transform.position = currentActiveEntity.transform.position + trackerPositionOffset;
         this.transform.parent = currentActiveEntity.transform;
     }
+    public void SetParent(GameObject focus)
+    {
+        currentActiveEntity = focus;
+        vc.m_YAxis.m_MaxSpeed = 0;
+        vc.m_XAxis.m_MaxSpeed = 0;
+        this.transform.position = currentActiveEntity.transform.position + trackerPositionOffset;
+        this.transform.parent = currentActiveEntity.transform;
+    }
     public void OnMoveCamera(InputAction.CallbackContext context)
     {
         this.transform.parent = null;
@@ -95,12 +103,14 @@ public class Tracker : MonoBehaviour, InputActions.ICameraActions
     public void OnRotateCamera(InputAction.CallbackContext context)
     {
         if (context.performed) {
+            canRotate = true;
             vc.m_YAxis.m_MaxSpeed = 2;
             vc.m_XAxis.m_MaxSpeed = 300;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-        if (context.canceled) {            
+        if (context.canceled) {
+            canRotate = false;
             vc.m_YAxis.m_MaxSpeed = 0;
             vc.m_XAxis.m_MaxSpeed = 0;
             Cursor.lockState = CursorLockMode.Confined;
@@ -137,10 +147,13 @@ public class Tracker : MonoBehaviour, InputActions.ICameraActions
 
     public void OnDeltaCamera(InputAction.CallbackContext context)
     {
-        movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")); /*Would prefer to use the correct thing...*/
-        Vector3 viewDir = mainCamera.transform.position - new Vector3(this.transform.position.x, mainCamera.transform.position.y, this.transform.position.z);
-        orientation.forward = viewDir.normalized;
-        Vector3 inputDir = orientation.forward * -movement.y + orientation.right * -movement.x;
-        rb.velocity = inputDir.normalized * moveSpeed;
+        if (canRotate)
+        {
+            movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")); /*Would prefer to use the correct thing...*/
+            Vector3 viewDir = mainCamera.transform.position - new Vector3(this.transform.position.x, mainCamera.transform.position.y, this.transform.position.z);
+            orientation.forward = viewDir.normalized;
+            Vector3 inputDir = orientation.forward * -movement.y + orientation.right * -movement.x;
+            rb.velocity = inputDir.normalized * moveSpeed;
+        }
     }
 }

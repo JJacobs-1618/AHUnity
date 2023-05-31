@@ -49,10 +49,6 @@ public class StatSliderUIController : MonoBehaviour, IUpkeepable
     { 
         availableFocus = stats.GetFocus();
 
-        priorSpeedSneakValue = 0;
-        priorFightWillValue = 0;
-        priorLoreLuckValue = 0;
-
         updatedSpeedSneak = false;
         updatedFightWill = false;
         updatedLoreLuck = false;
@@ -161,22 +157,20 @@ public class StatSliderUIController : MonoBehaviour, IUpkeepable
 
     public void CloseSliders()
     {
-        if(PhaseManager.instance.GetCurrentGamePhase() == GamePhase.InvestigatorSetup)
+        stats.SetSpeed(stats.speedStart + (int)speedSneakSlider.value);
+        stats.SetSneak(stats.sneakStart - (int)speedSneakSlider.value);
+        priorSpeedSneakValue = (int)speedSneakSlider.value;
+        stats.SetFight(stats.fightStart + (int)fightWillSlider.value);
+        stats.SetWill(stats.willStart - (int)fightWillSlider.value);
+        priorFightWillValue = (int)fightWillSlider.value;
+        stats.SetLore(stats.loreStart + (int)loreLuckSlider.value);
+        stats.SetLuck(stats.luckStart - (int)loreLuckSlider.value);
+        priorLoreLuckValue = (int)loreLuckSlider.value;
+
+        this.gameObject.SetActive(false);
+        if (PhaseManager.instance.GetCurrentGamePhase() == GamePhase.InvestigatorSetup)
         {
-            stats.SetSpeed(stats.speedStart + (int)speedSneakSlider.value);
-            stats.SetSneak(stats.sneakStart - (int)speedSneakSlider.value);
-            priorSpeedSneakValue = (int)speedSneakSlider.value;
-            stats.SetFight(stats.fightStart + (int)fightWillSlider.value);
-            stats.SetWill(stats.willStart - (int)fightWillSlider.value);
-            priorFightWillValue = (int)fightWillSlider.value;
-            stats.SetLore(stats.loreStart + (int)loreLuckSlider.value);
-            stats.SetLuck(stats.luckStart - (int)loreLuckSlider.value);
-            priorLoreLuckValue = (int)loreLuckSlider.value;
-
             investigator.performedSetup = true;
-
-            this.gameObject.SetActive(false);
-
             PhaseManager.instance.UpdateGamePhase(GamePhase.InvestigatorSetup);
         }
     }

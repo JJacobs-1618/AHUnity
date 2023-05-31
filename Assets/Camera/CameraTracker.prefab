@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 8367201174532025004}
   m_Layer: 0
   m_Name: CameraTracker
-  m_TagString: Untagged
+  m_TagString: Tracker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,9 +164,10 @@ MonoBehaviour:
   vRotSpeed: 75
   minZoomDistance: 15
   maxZoomDistance: 90
-  currentActiveEntity: {fileID: 0}
+  currentActiveEntity: {fileID: 5331693091821982703}
   deltaYaw: 0
   deltaPitch: 0
+  vc: {fileID: 7583514145023885890}
   orientation: {fileID: 7362684267424327053}
   tracker: {fileID: 1572232255569771377}
   trackerObj: {fileID: 2331432642379024083}

@@ -5,7 +5,10 @@ using TMPro;
 using UnityEngine;
 
 public class PlayerUIController : MonoBehaviour
-{
+{   
+    [Header("Parent Investigator Reference")]
+    [SerializeField] Investigator investigator;
+    [Header("Sub-UI References")]
     [SerializeField] GameObject playerDetailsUI;
     [SerializeField] GameObject statSliderUI;
     [SerializeField] GameObject upkeepUI;
@@ -13,13 +16,21 @@ public class PlayerUIController : MonoBehaviour
     [SerializeField] GameObject arkhamEncUI;
     [SerializeField] GameObject otherWorldEncUI;
     [SerializeField] GameObject mythosUI;
-    [SerializeField] Investigator investigator;
+
+    // Controller References
+    PlayerDetailsUIController playerDetailsUIController;
+    StatSliderUIController statSliderUIController;
+    UpkeepUIController upkeepUIController;
+    
 
     private void Start()
     {
         playerDetailsUI.SetActive(true);
+        playerDetailsUIController = playerDetailsUI.GetComponent<PlayerDetailsUIController>();
         statSliderUI.SetActive(false);
+        statSliderUIController = statSliderUI.GetComponent<StatSliderUIController>();
         upkeepUI.SetActive(false);
+        upkeepUIController = upkeepUI.GetComponent<UpkeepUIController>();
         movementUI.SetActive(false);
         arkhamEncUI.SetActive(false);
         otherWorldEncUI.SetActive(false);
@@ -27,13 +38,23 @@ public class PlayerUIController : MonoBehaviour
     }
 
     public Investigator GetInvestigator() { return investigator; }
+    internal void InvestigatorSetup()
+    {
+        statSliderUI.SetActive(true);
+        statSliderUIController.InitialSetup();
+    }
+
     public void showUpkeep() 
     {
         statSliderUI.SetActive(true);
         statSliderUI.GetComponent<StatSliderUIController>().StartUpkeep();
         upkeepUI.SetActive(true);
     }
-    public void hideUpkeep() { upkeepUI.SetActive(false); }
+    public void hideUpkeep() 
+    {
+        statSliderUIController.CloseSliders();
+        upkeepUI.SetActive(false); 
+    }
     public void showMovement() 
     { 
         movementUI.SetActive(true);
@@ -48,9 +69,5 @@ public class PlayerUIController : MonoBehaviour
     public void showMythos() { mythosUI.SetActive(true); }
     public void hideMythos() { mythosUI.SetActive(false); }
 
-    internal void ShowSetupSlider()
-    {
-        statSliderUI.SetActive(true);
-        statSliderUI.GetComponent<StatSliderUIController>().InitialSetup();
-    }
+    
 }

@@ -13,6 +13,8 @@ public class Investigator : MonoBehaviour
     [SerializeField] protected List<Item> fixedPossessions;
     [SerializeField] protected Dictionary<int, string> randomPossessions;
     [SerializeField] protected InvestigatorStats stats;
+    [Header("Camera Info")]
+    [SerializeField] Tracker cam;
 
     [Header("Investigator Ability")]
     [SerializeField] protected string abilityName;
@@ -37,6 +39,7 @@ public class Investigator : MonoBehaviour
 
     private void Start()
     {
+        if (cam == null) cam = GameObject.FindGameObjectWithTag("Tracker").GetComponent<Tracker>();
         if (_investigatorController == null)
         {
             if ((_investigatorController = GetComponent<InvestigatorController>()) == null)
@@ -82,6 +85,7 @@ public class Investigator : MonoBehaviour
 
     public void PlayerTurn()
     {
+        cam.SetParent(this.gameObject);
         switch (PhaseManager.instance.GetCurrentGamePhase())
         {
             case GamePhase.GameSetup:
@@ -110,6 +114,13 @@ public class Investigator : MonoBehaviour
         }
     }
 
+    private void InvestigatorSetup()
+    {
+        // Show sliders and set, 0 focus necessary.
+        ShowUI();
+        _uiController.InvestigatorSetup();
+    }
+
     private void UpkeepPhase()
     {
         ShowUI();
@@ -129,17 +140,5 @@ public class Investigator : MonoBehaviour
         }
         // Let move
         _investigatorController.Move(tilesInRange);
-    }
-
-    internal void InvestigatorSetup()
-    {
-        // Show sliders and set, 0 focus necessary.
-        ShowUI();
-        _uiController.ShowSetupSlider();
-    }
-
-    public void CompleteUpkeep()
-    {
-
     }
 }

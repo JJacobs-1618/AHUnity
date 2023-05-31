@@ -198,28 +198,6 @@ public class GameManager : MonoBehaviour
     public void GameSetupButton()
     {
         pm.UpdateGamePhase(GamePhase.GameSetup);
-    }//*TESTING* REMOVE
-    public void UpkeepButton()
-    {
-        pm.UpdateGamePhase(GamePhase.Upkeep);
-    }
-    //*TESTING* REMOVE
-    public void MovementButton()
-    {
-        currentPlayer = firstPlayer;
-        pm.UpdateGamePhase(GamePhase.Movement);
-    }
-    public void ArkButton()
-    {
-        pm.UpdateGamePhase(GamePhase.ArkhamEncounter);
-    }
-    public void OWButton()
-    {
-        pm.UpdateGamePhase(GamePhase.OtherWorldEncounter);
-    }
-    public void MythosButton()
-    {
-        pm.UpdateGamePhase(GamePhase.Mythos);
     }
 
     private static void GenerateGameRules(int numberOfPlayers)

@@ -28,17 +28,17 @@ public class GameTile : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        tileUI.SetActive(true);
+        //tileUI.SetActive(true);
     }    
 
     private void OnMouseUpAsButton()
     {
-        isClicked = !isClicked;
+        //isClicked = !isClicked;
     }
 
     private void OnMouseExit()
     {
-        if(!isClicked) tileUI.SetActive(false);
+        //if(!isClicked) tileUI.SetActive(false);
     }
     public string GetName()
     {

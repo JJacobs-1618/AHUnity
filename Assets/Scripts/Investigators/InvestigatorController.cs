@@ -76,6 +76,10 @@ public class InvestigatorController : MonoBehaviour, InputActions.IPlayerActions
             this.transform.position = selection.transform.position;
             currentLocation = selection.GetComponent<GameTile>();
             if (currentLocation == null) Debug.LogError("Error setting Current Location in Controller");
+            foreach(GameTile tile in inRange)
+            {
+                tile.HideUI();
+            }
         }
         yield return null;
     }
@@ -130,5 +134,10 @@ public class InvestigatorController : MonoBehaviour, InputActions.IPlayerActions
     public void SetCurrentLocation(GameTile location)
     {
         currentLocation = location;
+    }
+
+    public void ResetMovement()
+    {
+
     }
 }
