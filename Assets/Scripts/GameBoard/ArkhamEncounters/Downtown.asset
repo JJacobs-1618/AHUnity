@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c58e1a3d111614eb9357e3b4a5ce61, type: 3}
+  m_Name: Downtown
+  m_EditorClassIdentifier: 
+  locationOneName: ArkhamAsylum
+  locationTwoName: BankOfArkham
+  locationThreeName: IndependenceSquare
+  locationOneEncs:
+  - 'In the Doctor''s study, you find a book of helpful notes gathered from inmate
+    interviews. Make a <b>Lore (+0) check</b> and consult the following chart:  Successess:
+    0) Their stories fill you with horror even as you learn a few bits of knowledge.
+    Lose 1 Sanity and gain 1 Clue token. 1-2) You find several pieces of useful infiormation.
+    Gain 2 Clue tokens. 3+) One of the interviews contains vital information. Gain
+    3 Clue tokens.'
+  - You hear screaming. When you open a heavy cell door to investigate, a dark shape
+    leaps out at you! It's an insane man in a straightjacket babbling about invisible
+    horrors. Make a <b>Lore (-2) check</b> to glean some userful information from
+    him. If you pass, gain 2 Clue tokens. If you fail, lose 1 Stamina as he attacks
+    you.
+  - You hear screaming. When you open a heavy cell door to investigate, a dark shape
+    leaps out at you! It's an insane man in a straightjacket babbling about invisible
+    horrors. Make a <b>Lore (-2) check</b> to glean some userful information from
+    him. If you pass, gain 2 Clue tokens. If you fail, lose 1 Stamina as he attacks
+    you.
+  - 'The guards of the sanitarium are aware that there is an intruder. Make a <b>Sneak
+    (-1) check</b> to escape. If you pass, move to the street. If you fail, you are
+    arreseted and taken to the Police Station. '
+  - You find some strange medicine labeled "Dream Enhancers" in a dusty cabinet.
+    If you choose to take it, make a <b>Lore (-1) check.</b> If you pass, your visions
+    show you how to perform a ritual. Draw 1 Spell. Otherwise, nothing happens.
+  - Nurse Heather accidentally injects you with a sleeping draught. You may make
+    a <b>Fight (-2) check</b> to resist. If you fail or choose not to resist, lose
+    you next turn and gain 2 Sanity from the prolonged rest. If you pass, nothing
+    happens.
+  - Nurse Heather is coming! Make a <b>Speed (-1) check</b> to hide in time. If you
+    pass, you see her drop something as she walks by. Draw 1 Unique Item. If you
+    fail, she throws you out. Move to the street.
+  locationTwoEncs:
+  - One of the other customers in the bank recognizes you and offers you a lift.
+    Move to any location or street area in Arkham. If you move to a location, immediately
+    have an encounter there.
+  - A little old lady stands in front of you in line counting out a bag of pennines
+    to deposit. Lose 1 Sanity.
+  - You see a richly dressed man making a large withdrawl. Ont he way out, he lights
+    his cigar with a piece of green paper which he then drops onthe ground. Pass
+    a <b>Speed (-1) check</b> to stub it out with your tow before it burns up. You
+    discover it to be a slightly singed two dollar bill. Gain $2.
+  - '"This is a stick-up, see? Nobody move!" Three men armed with tommy guns rob
+    the bank while you''re standing in line. Make a <b>Combat (-1) check.</b> If
+    you pass, you drive them off. Nothing happens. If you fail, lose all of your
+    money.'
+  - You find a penny with a strange sigil carved into it. Amused, you flip it in
+    the air, then gasp as you feel the sudden gathering of magical forces around
+    you. Make a <b>Luck (-2) check.</b> If you pass, the penny comes up heads. You
+    are <i>Blessed.</i> If you fail, it comes up tails. You are <i>Cursed.</i>
+  - A teller you've never seen before insists she just saw you come in and make a
+    deposit the day before. She proves it b showing you your signature. Gain $5,
+    but lose 1 Sanity.
+  - 'A man wearing dirty and tattered clothing is loitering outside the band. He
+    offers to sell you his last possession to get some food money for him and his
+    family. If youaccep, pay $2 and make a <b>Luck (-1) check.</b> If you pass, draw
+    1 Unique Item. If you fail, draw 1 Common Item. '
+  locationThreeEncs:
+  - A pair of friendly picknickers share their lunch with you. Gain 1 Stamina.
+  - 'There are Romani camped in the park. Make a <b>Luck (-1) check</b> if you wish
+    to interact with them. If you pass, an old man has spread several items on a
+    blanket for sale. Draw 1 Unique Item and you may buy it for $1 less than the
+    list price. If you fail, a hag comes up to you and tells you that death shadows
+    you. You scoff at her and she cuts the side of your face with her fingernail,
+    drawing blood. Lose 1 Stamina and you are <i>Cursed.</i> '
+  - Pass a <b>Fight (-1) check</b> to intimidate a policeman or he rousts you from
+    the park. Move to the street.
+  - A shadow falls across you from no apparent source and you shiver with more than
+    just cold. Pass a <b>Will (-1) check</b> or lost 1 Stamina and 1 Sanity.
+  - There are Romani camped in the park. Desperate, they will expertly steal from
+    any unlucky enough to attract their attention. Pass a <b>Luck (-2) check</b>
+    or lose 1 item of your choice.
+  - 'You touch Founder''s Rock. Make a <b>Luck (-1) check.</b> If you pass, there
+    is an electrifying shock that opens your mind to the elder things of eons past.
+    Lost 1 Stamina, but gain 2 Clue tokens and draw 1 Spell. If you fai, you find
+    a strange carving. As youfinger the grooves, a gate opens here and you are drawn
+    through it. '
+  - 'Make a <b>Will (-1) check.</b> If you pass it, <b>Anna Kaslow</b> the fortune
+    teller offers her help in your investigation. Take her Ally card if it is still
+    available. Otherwise, gain 2 Clue tokens. If you fail, nothing happens. '

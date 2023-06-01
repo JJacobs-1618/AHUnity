@@ -10,20 +10,18 @@ public class GameTile : MonoBehaviour
     [SerializeField] protected List<GameTile> connectedLocations;
     [SerializeField] protected GameTile blackConnection;
     [SerializeField] protected GameTile whiteConnection;
-    [SerializeField] private GameObject tileUI;
-    [SerializeField] TextMeshProUGUI tileText;
-    [SerializeField] bool isClicked;
+    [SerializeField] protected GameObject tileUI;
+    [SerializeField] protected TextMeshProUGUI tileText;
 
     public GameTile()
     {
         tileName = "Unset";
-        isClicked = false;
     }
 
     private void Start()
     {
         tileText.text = tileName;
-        tileUI.SetActive(false);
+        HideUI();
     }
 
     private void OnMouseEnter()

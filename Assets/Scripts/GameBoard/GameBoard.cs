@@ -6,10 +6,13 @@ using UnityEngine;
 public class GameBoard : MonoBehaviour
 {
     public static GameBoard instance;
-
+    [Header("Game Tiles")]
     [SerializeField] List<GameObject> locations;
     [SerializeField] List<GameObject> streets;
     [SerializeField] List<GameObject> otherWorlds;
+    [Header("Arkham Encounters")]
+    Dictionary<LocationType, ArkhamEncounters> arkhamEncounters;
+    [SerializeField] List<ArkhamEncounters> encounters;
 
     private void Awake()
     {
@@ -25,6 +28,21 @@ public class GameBoard : MonoBehaviour
     public void InitGameBoard()
     {
         SetClueTokens();
+        SetupArkhamEncounterDictionary();
+    }
+
+    private void SetupArkhamEncounterDictionary()
+    {
+        arkhamEncounters = new Dictionary<LocationType, ArkhamEncounters>();
+        arkhamEncounters.TryAdd(LocationType.Downtown, encounters.Find(x => x.name == "Downtown"));
+        arkhamEncounters.TryAdd(LocationType.Easttown, encounters.Find(x => x.name == "Easttown"));
+        arkhamEncounters.TryAdd(LocationType.FrenchHill, encounters.Find(x => x.name == "FrenchHill"));
+        arkhamEncounters.TryAdd(LocationType.MerchantDistrict, encounters.Find(x => x.name == "MerchantDistrict"));
+        arkhamEncounters.TryAdd(LocationType.MiskatonicUniveristy, encounters.Find(x => x.name == "MiskatonicUniveristy"));
+        arkhamEncounters.TryAdd(LocationType.Northside, encounters.Find(x => x.name == "Northside"));
+        arkhamEncounters.TryAdd(LocationType.Rivertown, encounters.Find(x => x.name == "Rivertown"));
+        arkhamEncounters.TryAdd(LocationType.Southside, encounters.Find(x => x.name == "Southside"));
+        arkhamEncounters.TryAdd(LocationType.Uptown, encounters.Find(x => x.name == "Uptown"));
     }
 
     private void SetClueTokens()
@@ -68,5 +86,13 @@ public class GameBoard : MonoBehaviour
         }
 
         return retVal;
+    }
+
+    public ArkhamEncounters GetArkhamEncounters(LocationType type)
+    {
+        ArkhamEncounters retVal;
+        if (!arkhamEncounters.TryGetValue(type, out retVal))
+            Debug.LogError("GameBoard: Unable to locate Arkham Encounters.");
+        return retVal;        
     }
 }

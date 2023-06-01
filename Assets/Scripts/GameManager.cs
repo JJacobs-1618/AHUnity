@@ -145,8 +145,16 @@ public class GameManager : MonoBehaviour
 
     private void ArkhamEncounter()
     {
-        Debug.LogError("Unimplemented TODO");
-        pm.UpdateGamePhase(GamePhase.OtherWorldEncounter);
+        Investigator curr = investigators[currentPlayer];
+        if (!curr.performedArkhamEnc)
+        {
+            curr.PlayerTurn();
+            currentPlayer = (currentPlayer + 1) % investigatorsGO.Count;
+        }
+        else
+        {
+            pm.UpdateGamePhase(GamePhase.OtherWorldEncounter);
+        }        
     }
 
     private void OtherWorldEncounter()

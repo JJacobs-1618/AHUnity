@@ -5,5 +5,10 @@ using UnityEngine;
 public class Street : GameTile
 {
     [SerializeField] bool hasActiveEffect;
-    [SerializeField] List<ArkhamEncounter> encounters;
+
+    private void Start()
+    {
+        tileText.text = tileName;
+        HideUI();
+    }
 }

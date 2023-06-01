@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OtherWorld : MonoBehaviour
+public class OtherWorld : GameTile
 {
-    [SerializeField] protected string tileName;
+    private void Start()
+    {
+        tileText.text = tileName;
+        HideUI();
+    }
 }

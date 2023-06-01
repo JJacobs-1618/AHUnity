@@ -328,6 +328,16 @@ MonoBehaviour:
   - {fileID: 8969637847176580306}
   - {fileID: 16763388898820881}
   - {fileID: 277483112255370998}
+  encounters:
+  - {fileID: 11400000, guid: 8f0c2ab355f920140ba65e4984cb5212, type: 2}
+  - {fileID: 11400000, guid: a8b5c86893e57474cb0cf177491e32da, type: 2}
+  - {fileID: 11400000, guid: a1823e84b5a84904ab7d3788c35b735e, type: 2}
+  - {fileID: 11400000, guid: d3a04cb627d19334598d9ca413a715fb, type: 2}
+  - {fileID: 11400000, guid: be9f3fba60dbe1545be172971bf71e3c, type: 2}
+  - {fileID: 11400000, guid: da8259cbc461b82488bb269b4413f7d7, type: 2}
+  - {fileID: 11400000, guid: 35164005667b252488e00c2429ebff27, type: 2}
+  - {fileID: 11400000, guid: dc1e496e644ef2147ac7f6fbc259cec8, type: 2}
+  - {fileID: 11400000, guid: 74a550af8baa78546a37ab9d159b8667, type: 2}
 --- !u!1001 &149867874062446030
 PrefabInstance:
   m_ObjectHideFlags: 0

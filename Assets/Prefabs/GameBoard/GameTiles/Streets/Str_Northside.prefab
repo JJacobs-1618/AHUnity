@@ -12,6 +12,10 @@ PrefabInstance:
       value: Northside
       objectReference: {fileID: 0}
     - target: {fileID: -7513283917514090054, guid: 1b36a04ea7060d54085f6e576c8681c0, type: 3}
+      propertyPath: encounters
+      value: 
+      objectReference: {fileID: 11400000, guid: da8259cbc461b82488bb269b4413f7d7, type: 2}
+    - target: {fileID: -7513283917514090054, guid: 1b36a04ea7060d54085f6e576c8681c0, type: 3}
       propertyPath: locationType
       value: 5
       objectReference: {fileID: 0}

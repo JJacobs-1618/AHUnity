@@ -14,7 +14,11 @@ public class Location : GameTile
     {
         cluesAtLocation = 0;
     }
-
+    private void Start()
+    {
+        tileText.text = tileName;
+        HideUI();
+    }
     public bool GetStability()
     {
         return isUnstable;

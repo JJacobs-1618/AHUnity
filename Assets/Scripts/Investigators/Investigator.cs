@@ -77,6 +77,8 @@ public class Investigator : MonoBehaviour
     {
         playerUI.SetActive(true);
     }
+
+
     public void HideUI()
     {
         playerUI.SetActive(false);
@@ -102,6 +104,7 @@ public class Investigator : MonoBehaviour
             case GamePhase.Combat:
                 break;
             case GamePhase.ArkhamEncounter:
+                ArkhamEncounterPhase();
                 break;
             case GamePhase.OtherWorldEncounter:
                 break;
@@ -112,6 +115,47 @@ public class Investigator : MonoBehaviour
             case GamePhase.Paused:
                 break;
         }
+    }
+
+    public void EndTurn()
+    {
+        switch (PhaseManager.instance.GetCurrentGamePhase())
+        {
+            case GamePhase.GameSetup:
+                CompleteGameSetup();
+                break;
+            case GamePhase.InvestigatorSetup:
+                break;
+            case GamePhase.Upkeep:
+                break;
+            case GamePhase.Movement:
+                break;
+            case GamePhase.Combat:
+                break;
+            case GamePhase.ArkhamEncounter:
+                break;
+            case GamePhase.OtherWorldEncounter:
+                break;
+            case GamePhase.Mythos:
+                break;
+            case GamePhase.Any:
+                break;
+            case GamePhase.Paused:
+                break;
+        }
+    }
+
+    private void CompleteGameSetup()
+    {
+        performedSetup = true;
+        HideUI();
+        PhaseManager.instance.UpdateGamePhase(GamePhase.InvestigatorSetup);
+    }
+
+    private void ArkhamEncounterPhase()
+    {
+        ShowUI();
+        _uiController.showArkEnc();
     }
 
     private void InvestigatorSetup()

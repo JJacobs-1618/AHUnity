@@ -13,7 +13,7 @@ public class PlayerUIController : MonoBehaviour
     [SerializeField] GameObject statSliderUI;
     [SerializeField] GameObject upkeepUI;
     [SerializeField] GameObject movementUI;
-    [SerializeField] GameObject arkhamEncUI;
+    [SerializeField] ArkhamEncounterUIController arkhamEncUI;
     [SerializeField] GameObject otherWorldEncUI;
     [SerializeField] GameObject mythosUI;
 
@@ -32,7 +32,7 @@ public class PlayerUIController : MonoBehaviour
         upkeepUI.SetActive(false);
         upkeepUIController = upkeepUI.GetComponent<UpkeepUIController>();
         movementUI.SetActive(false);
-        arkhamEncUI.SetActive(false);
+        arkhamEncUI.gameObject.SetActive(false);
         otherWorldEncUI.SetActive(false);
         mythosUI.SetActive(false);
     }
@@ -62,8 +62,23 @@ public class PlayerUIController : MonoBehaviour
             movementUI.GetComponent<MovementUIController>().UpdateMovementPointText();
     }
     public void hideMovement() { movementUI.SetActive(false); }
-    public void showArkEnc() { arkhamEncUI.SetActive(true); }
-    public void hideArkEnc() { arkhamEncUI.SetActive(false); }
+    public void showArkEnc() 
+    {
+        arkhamEncUI.gameObject.SetActive(true);
+        if (!investigator.hasArkhamEnc)
+        {            
+            // Get encounter text from current location
+            ArkhamEncounters ae = GameBoard.instance.GetArkhamEncounters(investigator._investigatorController.currentLocation.GetLocationType());
+            string randomEnc = ae.locationOneEncs[UnityEngine.Random.Range(0, ae.locationOneEncs.Length - 1)];
+            arkhamEncUI.SetEncounterText(randomEnc);
+        }
+        else
+        {
+            arkhamEncUI.SetEncounterText("No Encounter. Continue.");
+        }
+
+    }
+    public void hideArkEnc() { arkhamEncUI.gameObject.SetActive(false); }
     public void showOWEnc() { otherWorldEncUI.SetActive(true); }
     public void hideOWEnc() { otherWorldEncUI.SetActive(false); }
     public void showMythos() { mythosUI.SetActive(true); }

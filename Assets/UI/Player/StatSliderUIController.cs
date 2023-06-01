@@ -170,8 +170,7 @@ public class StatSliderUIController : MonoBehaviour, IUpkeepable
         this.gameObject.SetActive(false);
         if (PhaseManager.instance.GetCurrentGamePhase() == GamePhase.InvestigatorSetup)
         {
-            investigator.performedSetup = true;
-            PhaseManager.instance.UpdateGamePhase(GamePhase.InvestigatorSetup);
+            investigator.EndTurn();            
         }
     }
 }

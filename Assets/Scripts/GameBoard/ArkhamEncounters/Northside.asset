@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c58e1a3d111614eb9357e3b4a5ce61, type: 3}
+  m_Name: Northside
+  m_EditorClassIdentifier: 
+  locationOneName: Curiositie Shoppe
+  locationTwoName: Newspaper
+  locationThreeName: Train Station
+  locationOneEncs:
+  - Pass a <Luck (-1) check</b> or you accidentally drop an item. Discard 1 item
+    of your choice. If you have no items to drop, then draw again for a different
+    encounter.
+  - Jackpot! You find just what you've been looking for. Search either the Common
+    or Unique Item deck and purchase any one item of your choice at list price.
+  - A sale takes place. All players may participate. Turn over the top 3 Common Item
+    cards and the top Unique Item card. Any player may buy one or more of these cards
+    for their list price. If there is a disagreement over who sgets to buy a certain
+    card, you decide. Any items not sold are discarded.
+  - A pulsing void gapes behind a bookshelf, sending out waves of heat. Pass a <b>Fight
+    (-1) check</b> or it sucks you in, hurling you into the Abyss. Have one encounter
+    there, then immediately return.
+  - As you wander into the back of the shop, you hear a noise. Pass a <b>Speed (-1)
+    check</b> or you look up just in time to see a descending club. Everything goes
+    black. When you awaken, you are somewhere else. Draw a mythos card and move to
+    the gate location shown on it, then immediately have an encounter there.
+  - You weed through piles of junk looking for something useful. Make a <b>Luck (-1)
+    check</b> to see what you find. If you pass, your search has resulted in success.
+    You may look at the top cards of both the Common and Unique Items decks. You
+    may purchase one, both, or neither at list price. If you fail, there is little
+    of interest here, but you may look at the top card of the Common Item deck and
+    purchase it for its list price.
+  - You examine an obscene statue. Pas a <b>Luck (-2) check</b> or else you feel
+    a cold dread spread through your body as you hold it. You are <i>Cursed.</i>
+  locationTwoEncs:
+  - Editor Doyle Jefferies offers you a Retainer in return for your fascinating stories.
+    Take a Retainer card.
+  - Editor Doyle Jefferies offers you a Retainer in return for your fascinating stories.
+    Take a Retainer card.
+  - Flipping through the early edition, you are surprised to see that one of the
+    classified ads begins with your name. Reading it, you realize that it contains
+    several coded clues to the nature fo the threat that faces Arkham. Pass a <b>Lore
+    (-1) check</b> to gain 3 Clue tokens.
+  - Earn $5 for a story.
+  - You accidentally tip over a bottle of ink and are aghast at the pattern the ink
+    forms on the newsroom floor. Lost 1 Sanity.
+  - Pass a <b>Luck (-1) check</b> to findan article that a local citizen told you
+    would shed light on the recent strange activities. Gain 1 clue token.
+  - You earn a hefty fee for a story and get a ride with Doyle Jefferies, the editor.
+    Gain $2 and move to any location or street area in Arkham. If you move to a location,
+    immediately have an encounter there.
+  locationThreeEncs:
+  - Joey "the Rat" is huddled in the shadows of the train station and motions for
+    you to come over. He has an item for sale. Draw the top Common Item card and
+    pay $1 more than list price if you wish to purchase it.
+  - The old train hand Bill Washington sits on the train platform playing his guitar
+    as he awaits the next train. As you listen to his singing you feel yourself healing
+    inside. Gain 2 points divided between Stamina and Sanity however you choose.
+  - Bill Washington moves the last of the baggage from his cart onto a truck and
+    offers you a ride as he opens the driver's door. If you acceptt, move to any
+    location or street area in Arkham. If you move to a location, immediately have
+    an envounter there.
+  - A well-dressed man is standing on the platform. He turns and greets you by name.
+    Although he seems oddly familiar, you don't remember even meeting him before.
+    Then he steps off the platform into the path of a speeding train. Make a <b>Speed
+    (-2) check.</b> If you pass, he vanishes as you leap right through him. On the
+    ground, you find yourself cluctching a scrap of paper. Gain 1 Spell. If you fail,
+    he is obliterated before your eyes. Roll a die and lose that much Sanity.
+  - A stranger in a turban steps off the Boston local train with a crazed look on
+    his face. Make a <b>Luck (-1) check.</b> If you pass, the man pulls a strange
+    object from beneath his cloak and gives it to you. Draw 1 Unique Item. If you
+    fail, hu pulls a poisoned blade out of his cloak and stabs you. Roll a die and
+    lose that much Stamina.
+  - Pay $3 at the Railroad Office to claim an item left in Lost and Found. If you
+    do so, make a <b>Luck (-2) check.</b> If you pass, draw a Unique Item. If you
+    fail, draw a Common Item.
+  - On the loading dock you investigate a large crate with strange markings. Make
+    a <b>Sneak (-1) check.</b> If you pass, you find a very unusual item in the crate.
+    Gain 1 Unique Item. If you fail, Deputy Dingby catches you breaking it open.
+    You are arrested and taken to the Police Station.

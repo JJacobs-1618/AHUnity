@@ -104,9 +104,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: Unset
   locationType: 0
+  connectedLocations: []
   blackConnection: {fileID: 0}
   whiteConnection: {fileID: 0}
   tileUI: {fileID: 4087221810379836912}
   tileText: {fileID: 1622458659553176071}
-  isClicked: 0
   hasActiveEffect: 0
