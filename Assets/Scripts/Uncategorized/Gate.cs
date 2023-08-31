@@ -6,6 +6,6 @@ public class Gate : MonoBehaviour
 {
     [SerializeField] string gateName;
     [SerializeField] int difficulty;
-    [SerializeField] DimensionalSymbol dimSym;
+    [SerializeField] DimensionSymbolType dimSym;
 }
 

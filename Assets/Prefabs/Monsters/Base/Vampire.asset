@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290259845ed5acb498113d55b0ee4041, type: 3}
+  m_Name: Vampire
+  m_EditorClassIdentifier: 
+  MonsterName: Vampire
+  FlavorText: <i>It was a beast born in the grave. It stretched its hands towards
+    us and curled its lips, drawn to the blood in our veins</i>
+  Awareness: -3
+  Symbol: 6
+  movementType: 0
+  Ambush: 0
+  Endless: 0
+  PhysicalResistance: 1
+  MagicalResistance: 0
+  PhysicalImmunity: 0
+  MagicalImmunity: 0
+  Nightmarish: 0
+  NightmarishDamage: 0
+  Overwhelming: 0
+  OverwhelmingDamage: 0
+  Undead: 1
+  HorrorRating: 0
+  HorrorDamage: 2
+  Toughness: 2
+  CombatDamage: 3
+  CombatRating: -3

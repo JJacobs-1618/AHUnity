@@ -2,9 +2,90 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Investigator : MonoBehaviour
 {
+    public InvestigatorSO data;
+
+    private InvestigatorController controller;
+    private InvestigatorUIController uiController;
+
+    private GameBoard gb;
+    public NeighborhoodTile currentLocation;
+
+
+    private void Awake()
+    {
+        Init();
+    }
+
+    private void Init()
+    {
+        Setup();
+        Configure();
+    }
+    private void Setup()
+    {
+        controller = gameObject.AddComponent<InvestigatorController>();
+        uiController = gameObject.AddComponent<InvestigatorUIController>();        
+    }
+    private void Configure()
+    {
+        
+    }
+
+    private void Start()
+    {
+        gb = GameBoard.instance;
+        controller.SetInvestigator(this);
+    }
+
+    public GameTile CurrentTile
+    {
+        get => controller.CurrentTile;
+        set => controller.CurrentTile = value;
+    }
+    public void PlayerTurn()
+    {
+        //TODO
+        switch (PhaseManager.instance.GetCurrentGamePhase())
+        {
+            case GamePhase.GameSetup:
+                break;
+            case GamePhase.InvestigatorSetup:
+                break;
+            case GamePhase.Upkeep:
+                break;
+            case GamePhase.Movement:
+                break;
+            case GamePhase.Combat:
+                break;
+            case GamePhase.ArkhamEncounter:
+                break;
+            case GamePhase.OtherWorldEncounter:
+                break;
+            case GamePhase.Mythos:
+                break;
+            case GamePhase.Any:
+                break;
+            case GamePhase.Paused:
+                break;
+        }
+    }
+
+    public void PerformMovement()
+    {
+        // Gather and inform controller of total movement points
+        controller.MovementPoints = data.speed;
+        controller.InitMovementPhase();
+    }
+
+    private void Update()
+    {
+    }
+}
+    /*
     [Header("Investigator Info")]
     [SerializeField] protected string investigatorName;
     [SerializeField] protected string profession;
@@ -177,12 +258,13 @@ public class Investigator : MonoBehaviour
         ShowUI();
         _uiController.showMovement();
         // Show locations in Range
-        List<GameTile> tilesInRange = GameBoard.instance.GetLocationsInRange(_investigatorController.currentLocation, stats.GetSpeed());
-        foreach(GameTile tile in tilesInRange)
-        {
-            tile.ShowUI();
-        }
+        //List<GameTile> tilesInRange = GameBoard.instance.GetLocationsInRange(_investigatorController.currentLocation, stats.GetSpeed());
+        //foreach(GameTile tile in tilesInRange)
+        //{
+            //tile.ShowUI();
+       // }
         // Let move
-        _investigatorController.Move(tilesInRange);
+        //_investigatorController.Move(tilesInRange);
     }
 }
+    */

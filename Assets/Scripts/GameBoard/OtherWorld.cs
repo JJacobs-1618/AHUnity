@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class OtherWorld : GameTile
 {
-    private void Start()
+    public override void Configure()
     {
-        tileText.text = tileName;
-        HideUI();
+        
+    }
+
+    public override void Setup()
+    {
+        
     }
 }

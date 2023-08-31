@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4373724462029322625, guid: 65d2404c65f91c3479d0e7534bba649a, type: 3}
@@ -59,7 +60,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: OtherWorld
       objectReference: {fileID: 0}
+    - target: {fileID: 7228597703534554719, guid: 65d2404c65f91c3479d0e7534bba649a, type: 3}
+      propertyPath: m_TagString
+      value: OtherWorld
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7228597703534554719, guid: 65d2404c65f91c3479d0e7534bba649a, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: -2572346030251106906}
   m_SourcePrefab: {fileID: 100100000, guid: 65d2404c65f91c3479d0e7534bba649a, type: 3}
 --- !u!1 &4540888389377851421 stripped
 GameObject:
@@ -78,14 +89,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f750f73ab45a834f9ad4e96cfc6aa5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileName: Unset
-  locationType: 9
-  tileUI: {fileID: 8108355702955257509}
-  tileText: {fileID: 6825822712387995986}
-  type: []
---- !u!114 &6825822712387995986 stripped
+  data: {fileID: 0}
+  mainCanvas: {fileID: 7433336665090224639}
+  distText: {fileID: 7728281427356095162}
+--- !u!1 &7433336665090224639 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4358885129362825149, guid: 65d2404c65f91c3479d0e7534bba649a, type: 3}
+  m_PrefabInstance: {fileID: 6581266204490575426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7728281427356095162 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 427678317309568784, guid: 65d2404c65f91c3479d0e7534bba649a, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3464681799303478520, guid: 65d2404c65f91c3479d0e7534bba649a, type: 3}
   m_PrefabInstance: {fileID: 6581266204490575426}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -94,8 +108,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &8108355702955257509 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3158131866521338087, guid: 65d2404c65f91c3479d0e7534bba649a, type: 3}
-  m_PrefabInstance: {fileID: 6581266204490575426}
-  m_PrefabAsset: {fileID: 0}

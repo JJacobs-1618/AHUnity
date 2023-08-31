@@ -8,6 +8,11 @@ TagManager:
   - Investigator
   - Monster
   - Tracker
+  - GameTile
+  - Location
+  - Street
+  - OtherWorld
+  - CityLimit
   layers:
   - Default
   - TransparentFX
@@ -17,7 +22,7 @@ TagManager:
   - UI
   - 
   - Investigator
-  - GameTile
+  - GameBoard
   - 
   - Monster
   - 

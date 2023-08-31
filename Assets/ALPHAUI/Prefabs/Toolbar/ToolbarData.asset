@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c277926a95e34a4f91fffc094ece5f6, type: 3}
+  m_Name: ToolbarData
+  m_EditorClassIdentifier: 
+  numberOfToolbarContainers: 9
+  autoPadAndSpace: 0
+  padding:
+    m_Left: 12
+    m_Right: 12
+    m_Top: 12
+    m_Bottom: 12
+  spacing: 5
+  containerSize: {x: 30, y: 30}
+  theme: {fileID: 11400000, guid: 3e8da49f93728e94195efbd9a45ba873, type: 2}
+  toolbarBackgroundImage: {fileID: 21300000, guid: 387b0ac407e0be649b7dbe7d3b0acccf, type: 3}
+  toolbarImages:
+  - {fileID: 21300000, guid: 0d64c479e2676ef4ebbe9ff968934d03, type: 3}
+  - {fileID: 21300000, guid: 0d64c479e2676ef4ebbe9ff968934d03, type: 3}
+  - {fileID: 21300000, guid: 0d64c479e2676ef4ebbe9ff968934d03, type: 3}
+  - {fileID: 21300000, guid: 0d64c479e2676ef4ebbe9ff968934d03, type: 3}
+  - {fileID: 21300000, guid: 0d64c479e2676ef4ebbe9ff968934d03, type: 3}
+  - {fileID: 21300000, guid: 0d64c479e2676ef4ebbe9ff968934d03, type: 3}
+  - {fileID: 21300000, guid: 0d64c479e2676ef4ebbe9ff968934d03, type: 3}
+  - {fileID: 21300000, guid: 0d64c479e2676ef4ebbe9ff968934d03, type: 3}
+  defaultImage: {fileID: 21300000, guid: cd62042518910214bb053a6401d46da8, type: 3}

@@ -1,10 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class GameTile : MonoBehaviour
+public abstract class GameTile : MonoBehaviour
 {
+    public GameTileSO data;
+
+    [Header("UI Information")]
+    public GameObject mainCanvas;
+    public TextMeshProUGUI distText;
+
+
+    private void Awake()
+    {
+        Init();
+    }
+
+    private void Init()
+    {
+        Setup();
+        Configure();
+    }
+
+    public abstract void Setup();
+    public abstract void Configure();
+
+    internal void DisplayMovementIcon(int dist)
+    {
+        distText.text = $"{dist}";
+        mainCanvas.SetActive(!mainCanvas.activeSelf);
+    }
+}
+    /*
     [SerializeField] protected string tileName;
     [SerializeField] protected LocationType locationType;
     [SerializeField] protected List<GameTile> connectedLocations;
@@ -76,3 +105,4 @@ public enum LocationType
     Southside,
     Uptown
 }
+    */

@@ -7,12 +7,44 @@ public class GameBoard : MonoBehaviour
 {
     public static GameBoard instance;
     [Header("Game Tiles")]
-    [SerializeField] List<GameObject> locations;
-    [SerializeField] List<GameObject> streets;
-    [SerializeField] List<GameObject> otherWorlds;
-    [Header("Arkham Encounters")]
-    Dictionary<LocationType, ArkhamEncounters> arkhamEncounters;
-    [SerializeField] List<ArkhamEncounters> encounters;
+    public List<GameObject> locations;
+    public List<GameObject> streets;
+    public List<GameObject> otherWorlds;
+    public List<GameObject> cityLimits;
+    [Header("Card Decks")] // TODO: This may be better in a DeckManager.... 
+    public MythosDeck mythos;
+
+    // public Dictionary<NeighborhoodTile, LocationEncounterDeck> locationEncounters;
+    // public OtherWorldEncounterDeck otherWorldEncounters;
+    // public CommonItemDeck commonItems;
+    // public UniqueItemDeck uniqueItems;
+    // public SpellDeck spells;
+    // public SkillDeck skills;
+    // public AllyDeck allies;
+
+    public MonsterFactory mf;
+    private List<Location> locationRefs;
+    private List<Street> streetRefs;
+    //private List<> otherWorlds;
+    //private List<> cityLimits;
+
+
+    public List<Monster> monstersInPlay;
+    public List<Monster> monstersInOutskirts;
+
+    public void SpawnMonster()
+    {
+        // Create a new gameobject to hold the monster
+        GameObject monsterGO = mf.GetNewInstance().gameObject;
+        Monster monster = monsterGO.GetComponent<Monster>();
+        monsterGO.name = $"Monster ({monster.data.MonsterName})";
+        Location testingLocation = GetLocation("Independence Square");
+        monsterGO.transform.position = testingLocation.transform.position + new Vector3(0, 1, 0); //TODO: Spawn Where Needed
+        monster.CurrentLocation = testingLocation;
+        monstersInPlay.Add(monster);
+    }
+
+    private bool isInitialized;
 
     private void Awake()
     {
@@ -23,7 +55,147 @@ public class GameBoard : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+        monstersInPlay = new();
+        monstersInOutskirts = new();
     }
+
+    public void GetReachableTiles(NeighborhoodTile tile, int movementPoints, int currStep, ref Dictionary<NeighborhoodTile, int> returnDict)
+    { 
+        if (((NeighborhoodTileSO)tile.data).neighborhoodTileType == NeighborhoodTileType.Location)
+        {
+            if (((LocationTileSO)tile.data).isClosed) return;
+        }
+        returnDict.Add(tile, currStep);
+        currStep++;
+        if (currStep > movementPoints) return;
+
+        NeighborhoodTileSO tileData = (NeighborhoodTileSO)tile.data;
+
+        switch (tileData.neighborhoodTileType)
+        {
+            case NeighborhoodTileType.Location:
+                if (returnDict.ContainsKey(tile.blackConnection))
+                {
+                    if (returnDict.GetValueOrDefault(tile.blackConnection) > currStep)
+                    {
+                        returnDict.Remove(tile.blackConnection);
+                    }
+                    else
+                        break;
+                }
+                GetReachableTiles(tile.blackConnection, movementPoints, currStep, ref returnDict);
+                break;
+            case NeighborhoodTileType.Street:
+                foreach (NeighborhoodTile nt in ((Street)tile).connectedLocations)
+                {
+                    if (returnDict.ContainsKey(nt))
+                    {
+                        if (returnDict.GetValueOrDefault(nt) > currStep)
+                        {
+                            returnDict.Remove(nt);
+                        }
+                        else
+                            continue;
+                    }
+                    GetReachableTiles(nt, movementPoints, currStep, ref returnDict);
+                }
+                break;
+            case NeighborhoodTileType.NeighborhoodTile:
+                break;
+        }        
+    }
+
+    public void SetupBoard()
+    {
+        if (isInitialized)
+        {
+            Debug.LogWarning("Game Board is already initialized. Press Init Button again to re-initialize.");
+            isInitialized = false;
+            return;
+        }
+        GetGameTileReferences();
+        SetCluesOnUnstableLocations();
+        isInitialized = true;
+    }
+
+    private void GetGameTileReferences()
+    {
+        locationRefs = new();
+        streetRefs = new();
+        foreach (GameObject go in locations)
+            locationRefs.Add(go.GetComponent<Location>());
+            
+        foreach (GameObject go in streets)
+            streetRefs.Add(go.GetComponent<Street>());
+        //foreach (GameObject go in otherWorlds)
+        //streetRefs.Add(go.GetComponent<Street>());
+    }
+
+    public Location GetLocation(string home)
+    {
+        return locationRefs.Find(x => x.data.gameTileName.Contains(home));
+    }
+
+    public Street GetStreet(string street)
+    {
+        return streetRefs.Find(x => x.data.gameTileName.Contains(street));
+    }
+    /*public OtherWorld GetOtherWorld(string ow)
+    {
+        return otherWorldRefs.Find(x => x.data.gameTileName.Contains(ow));
+    }*/
+
+    public GameTile GetGameTile(string tile)
+    {
+        return null;
+    }
+
+    private void SetCluesOnUnstableLocations()
+    {
+        try
+        {
+            foreach (Location l in locationRefs)
+            {
+                LocationTileSO lData = (LocationTileSO)l.data;
+                lData.clueTokens = 0;                                           // Due to the fact that ScriptableObjects will save data after PlayMode ends, this re-inits these guys to 0 as we come across.
+                if (lData.stability == LocationStabilityType.Stable) continue;
+                lData.clueTokens++;
+            }
+        }
+        catch
+        {
+            Debug.LogError("Unable to locate references in GameBoard.");
+        }
+    }
+
+    public void CloseLocation(string location)
+    {
+        Location l = GetLocation(location);
+        LocationTileSO tileData = (LocationTileSO)l.data;
+        if (tileData.isClosed) return;
+        tileData.isClosed = true;
+        // Kick out everything in the location
+        
+    }
+
+    public void OpenLocation(string location)
+    {
+        Location l = GetLocation(location);
+        LocationTileSO tileData = (LocationTileSO)l.data;
+        if (tileData.isClosed) tileData.isClosed = false;
+    }
+}
+    /*
+    public static GameBoard instance;
+    [Header("Game Tiles")]
+    [SerializeField] List<GameObject> locations;
+    [SerializeField] List<GameObject> streets;
+    [SerializeField] List<GameObject> otherWorlds;
+    [Header("Arkham Encounters")]
+    Dictionary<LocationType, ArkhamEncounters> arkhamEncounters;
+    [SerializeField] List<ArkhamEncounters> encounters;
+
+    
 
     public void InitGameBoard()
     {
@@ -88,6 +260,7 @@ public class GameBoard : MonoBehaviour
         return retVal;
     }
 
+    
     public ArkhamEncounters GetArkhamEncounters(LocationType type)
     {
         ArkhamEncounters retVal;
@@ -96,3 +269,4 @@ public class GameBoard : MonoBehaviour
         return retVal;        
     }
 }
+    */

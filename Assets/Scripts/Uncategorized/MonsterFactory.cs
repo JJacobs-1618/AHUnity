@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterFactory : MonoBehaviour
+public class MonsterFactory : GenericFactory<Monster>
 {
-    // Start is called before the first frame update
-    void Start()
+    public override Monster CreateObject(Monster baseObj, ScriptableObject data)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        baseObj.data = (MonsterSO)data;
+        return baseObj;
     }
 }
