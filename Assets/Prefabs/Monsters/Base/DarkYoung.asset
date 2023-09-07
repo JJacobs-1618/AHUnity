@@ -10,28 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 290259845ed5acb498113d55b0ee4041, type: 3}
-  m_Name: Byakhee
+  m_Name: DarkYoung
   m_EditorClassIdentifier: 
-  MonsterName: Byakhee
-  FlavorText: <i>It shrieked and flapped its wings. I thought of the empty shell
-    of a beetle, and the soft loam of rotting earth. It cocked its carapaced head
-    at me, black teeth clicking against each other.</i>
+  MonsterName: Dark Young
+  FlavorText: <i> The tress trembled, leaves fluttering around us. The earth shook
+    as t he thuds of giant hooved feet grew ever closer...</i>
   Awareness: -2
-  Symbol: 1
-  MovementType: 4
+  Symbol: 6
+  MovementType: 1
   Ambush: 0
   Endless: 0
-  PhysicalResistance: 0
+  PhysicalResistance: 1
   MagicalResistance: 0
   PhysicalImmunity: 0
   MagicalImmunity: 0
-  Nightmarish: 0
-  NightmarishDamage: 0
+  Nightmarish: 1
+  NightmarishDamage: 1
   Overwhelming: 0
   OverwhelmingDamage: 0
   Undead: 0
-  HorrorRating: -1
-  HorrorDamage: 1
-  Toughness: 1
-  CombatDamage: 2
-  CombatRating: 0
+  HorrorRating: 0
+  HorrorDamage: 3
+  Toughness: 3
+  CombatDamage: 3
+  CombatRating: -1

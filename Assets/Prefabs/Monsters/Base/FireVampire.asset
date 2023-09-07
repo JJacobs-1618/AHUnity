@@ -10,28 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 290259845ed5acb498113d55b0ee4041, type: 3}
-  m_Name: Byakhee
+  m_Name: FireVampire
   m_EditorClassIdentifier: 
-  MonsterName: Byakhee
-  FlavorText: <i>It shrieked and flapped its wings. I thought of the empty shell
-    of a beetle, and the soft loam of rotting earth. It cocked its carapaced head
-    at me, black teeth clicking against each other.</i>
-  Awareness: -2
-  Symbol: 1
+  MonsterName: Fire Vampire
+  FlavorText: <i>A thousand tiny fires, the size of match-flames, swept from the
+    night sky. The old man was suddenly radiant with light.</i>
+  Awareness: 0
+  Symbol: 7
   MovementType: 4
-  Ambush: 0
+  Ambush: 1
   Endless: 0
   PhysicalResistance: 0
   MagicalResistance: 0
-  PhysicalImmunity: 0
+  PhysicalImmunity: 1
   MagicalImmunity: 0
   Nightmarish: 0
   NightmarishDamage: 0
   Overwhelming: 0
   OverwhelmingDamage: 0
   Undead: 0
-  HorrorRating: -1
-  HorrorDamage: 1
+  HorrorRating: 0
+  HorrorDamage: 0
   Toughness: 1
   CombatDamage: 2
-  CombatRating: 0
+  CombatRating: -2

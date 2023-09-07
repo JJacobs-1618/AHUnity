@@ -10,7 +10,7 @@ public class MonsterSO : ScriptableObject
     public string FlavorText;
     public int Awareness;
     public DimensionSymbolType Symbol;
-    public MovementType movementType;
+    public MonsterMovementType MovementType;
     [Header("Monster Abilities")]
     public bool Ambush;
     public bool Endless;
@@ -29,9 +29,16 @@ public class MonsterSO : ScriptableObject
     public int Toughness;
     public int CombatDamage;
     public int CombatRating;
+
+    public MonsterSO()
+    {
+        MonsterName = "Default";
+        Symbol = DimensionSymbolType.DimensionSymbol;
+        MovementType = MonsterMovementType.MovementType;
+    }
 }
 
-public enum MovementType
+public enum MonsterMovementType
 {
     Normal,
     Stationary,

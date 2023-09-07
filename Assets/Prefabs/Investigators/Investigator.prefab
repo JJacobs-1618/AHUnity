@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2c7da1c4ccd23464ead03be2b962e430, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,9 +92,17 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4466950313335307492}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6136142257071046813
@@ -146,25 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927ff6bc2e53a5d42b968582f707c6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  investigatorName: Base
-  profession: Base
-  home: Base
-  inventory: {fileID: 5698002099710844272}
-  fixedPossessions: []
-  stats: {fileID: 6835385342177360803}
-  abilityName: Base
-  abilityText: Base
-  theStorySoFar: Base
-  _investigatorController: {fileID: 5878767979194372455}
-  playerUI: {fileID: 1680623516038482676}
-  _uiController: {fileID: 2938000294307872921}
-  performedSetup: 0
-  performedUpkeep: 0
-  performedMovement: 0
-  hasArkhamEnc: 0
-  performedArkhamEnc: 0
-  hasOtherWorldEnc: 0
-  performedOtherWorldEnc: 0
+  data: {fileID: 0}
+  currentLocation: {fileID: 0}
 --- !u!114 &6835385342177360803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,9 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalCash: 0
-  commonItems: []
-  uniqueItems: []
-  spells: []
+  clueToken: 0
 --- !u!114 &5878767979194372455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,15 +211,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53aa14a80454a4546bd0a27541f61ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasMoved: 0
-  selection: {fileID: 0}
-  uiController: {fileID: 2938000294307872921}
-  currentLocation: {fileID: 0}
+  mainCamera: {fileID: 0}
 --- !u!1001 &4878354541072474738
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 5029580118182302420}
     m_Modifications:
     - target: {fileID: -1479790745220078869, guid: 6ce9abe673b05dc48a6199c7e62cf651, type: 3}
@@ -310,23 +297,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ce9abe673b05dc48a6199c7e62cf651, type: 3}
---- !u!1 &1680623516038482676 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6116349767798597766, guid: 6ce9abe673b05dc48a6199c7e62cf651, type: 3}
-  m_PrefabInstance: {fileID: 4878354541072474738}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2938000294307872921 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -1479790745220078869, guid: 6ce9abe673b05dc48a6199c7e62cf651, type: 3}
-  m_PrefabInstance: {fileID: 4878354541072474738}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1680623516038482676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f9161f8acd5cf74894c0f3814e9bfad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &3704755483166884402 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8131964773943091264, guid: 6ce9abe673b05dc48a6199c7e62cf651, type: 3}

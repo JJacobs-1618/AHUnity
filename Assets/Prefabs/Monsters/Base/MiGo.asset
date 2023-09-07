@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 290259845ed5acb498113d55b0ee4041, type: 3}
-  m_Name: Byakhee
+  m_Name: MiGo
   m_EditorClassIdentifier: 
-  MonsterName: Byakhee
-  FlavorText: <i>It shrieked and flapped its wings. I thought of the empty shell
-    of a beetle, and the soft loam of rotting earth. It cocked its carapaced head
-    at me, black teeth clicking against each other.</i>
+  MonsterName: Mi-Go
+  FlavorText: If you pass a <b>Combat check</b> against Mi-Go, return it to the box
+    and draw 1 Unique Item.
   Awareness: -2
   Symbol: 1
   MovementType: 4
@@ -31,7 +30,7 @@ MonoBehaviour:
   OverwhelmingDamage: 0
   Undead: 0
   HorrorRating: -1
-  HorrorDamage: 1
+  HorrorDamage: 2
   Toughness: 1
-  CombatDamage: 2
+  CombatDamage: 1
   CombatRating: 0

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 290259845ed5acb498113d55b0ee4041, type: 3}
-  m_Name: Byakhee
+  m_Name: Nightgaunt
   m_EditorClassIdentifier: 
-  MonsterName: Byakhee
-  FlavorText: <i>It shrieked and flapped its wings. I thought of the empty shell
-    of a beetle, and the soft loam of rotting earth. It cocked its carapaced head
-    at me, black teeth clicking against each other.</i>
+  MonsterName: Nightgaunt
+  FlavorText: When you fail a <b>Combat check</b> against Nightgaunt, you are drawn
+    through the nearest open gate. If two or more gates are the same distance from
+    you, you choose which gate you are drawn through.
   Awareness: -2
-  Symbol: 1
+  Symbol: 4
   MovementType: 4
   Ambush: 0
   Endless: 0
@@ -32,6 +32,6 @@ MonoBehaviour:
   Undead: 0
   HorrorRating: -1
   HorrorDamage: 1
-  Toughness: 1
-  CombatDamage: 2
-  CombatRating: 0
+  Toughness: 2
+  CombatDamage: 0
+  CombatRating: -2

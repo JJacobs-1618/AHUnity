@@ -10,19 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 290259845ed5acb498113d55b0ee4041, type: 3}
-  m_Name: Byakhee
+  m_Name: Witch
   m_EditorClassIdentifier: 
-  MonsterName: Byakhee
-  FlavorText: <i>It shrieked and flapped its wings. I thought of the empty shell
-    of a beetle, and the soft loam of rotting earth. It cocked its carapaced head
-    at me, black teeth clicking against each other.</i>
-  Awareness: -2
+  MonsterName: Witch
+  FlavorText: <i>She was lovely and terrible all at once. A strange light shone in
+    her eyes as she chanted, "Ia! Ia! Shub-Niggurath! The Goat with a Thousand Young!"</i>
+  Awareness: -1
   Symbol: 1
-  MovementType: 4
+  MovementType: 0
   Ambush: 0
   Endless: 0
   PhysicalResistance: 0
-  MagicalResistance: 0
+  MagicalResistance: 1
   PhysicalImmunity: 0
   MagicalImmunity: 0
   Nightmarish: 0
@@ -30,8 +29,8 @@ MonoBehaviour:
   Overwhelming: 0
   OverwhelmingDamage: 0
   Undead: 0
-  HorrorRating: -1
-  HorrorDamage: 1
+  HorrorRating: 0
+  HorrorDamage: 0
   Toughness: 1
   CombatDamage: 2
-  CombatRating: 0
+  CombatRating: -3

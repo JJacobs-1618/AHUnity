@@ -122,7 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d67c1b499d338479f33b5183cff25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: a319ef473813d934ead8012600ec7acc, type: 2}
+  data: {fileID: 0}
+  movementColor: {fileID: 0}
 --- !u!114 &6830686897000826978
 MonoBehaviour:
   m_ObjectHideFlags: 0

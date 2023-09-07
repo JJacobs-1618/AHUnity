@@ -10,20 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 290259845ed5acb498113d55b0ee4041, type: 3}
-  m_Name: Byakhee
+  m_Name: FormlessSpawn
   m_EditorClassIdentifier: 
-  MonsterName: Byakhee
-  FlavorText: <i>It shrieked and flapped its wings. I thought of the empty shell
-    of a beetle, and the soft loam of rotting earth. It cocked its carapaced head
-    at me, black teeth clicking against each other.</i>
-  Awareness: -2
-  Symbol: 1
-  MovementType: 4
+  MonsterName: Formless Spawn
+  FlavorText: <i>From the darkened alley a patch of darkness seemed to detach itself,
+    curling along the bricks and rising to block our path.</i>
+  Awareness: 0
+  Symbol: 6
+  MovementType: 0
   Ambush: 0
   Endless: 0
   PhysicalResistance: 0
   MagicalResistance: 0
-  PhysicalImmunity: 0
+  PhysicalImmunity: 1
   MagicalImmunity: 0
   Nightmarish: 0
   NightmarishDamage: 0
@@ -31,7 +30,7 @@ MonoBehaviour:
   OverwhelmingDamage: 0
   Undead: 0
   HorrorRating: -1
-  HorrorDamage: 1
-  Toughness: 1
+  HorrorDamage: 2
+  Toughness: 2
   CombatDamage: 2
-  CombatRating: 0
+  CombatRating: -2

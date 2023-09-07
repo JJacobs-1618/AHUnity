@@ -10,27 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 290259845ed5acb498113d55b0ee4041, type: 3}
-  m_Name: Vampire
+  m_Name: Dhole
   m_EditorClassIdentifier: 
-  MonsterName: Vampire
-  FlavorText: <i>It was a beast born in the grave. It stretched its hands towards
-    us and curled its lips, drawn to the blood in our veins</i>
-  Awareness: -3
-  Symbol: 3
+  MonsterName: Dhole
+  FlavorText: 
+  Awareness: -1
+  Symbol: 1
   MovementType: 0
   Ambush: 0
   Endless: 0
   PhysicalResistance: 1
-  MagicalResistance: 0
+  MagicalResistance: 1
   PhysicalImmunity: 0
   MagicalImmunity: 0
-  Nightmarish: 0
-  NightmarishDamage: 0
-  Overwhelming: 0
-  OverwhelmingDamage: 0
-  Undead: 1
-  HorrorRating: 0
-  HorrorDamage: 2
-  Toughness: 2
-  CombatDamage: 3
+  Nightmarish: 1
+  NightmarishDamage: 1
+  Overwhelming: 1
+  OverwhelmingDamage: 1
+  Undead: 0
+  HorrorRating: -1
+  HorrorDamage: 4
+  Toughness: 3
+  CombatDamage: 4
   CombatRating: -3
