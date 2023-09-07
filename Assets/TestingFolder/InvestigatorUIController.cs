@@ -33,4 +33,16 @@ public class InvestigatorUIController : MonoBehaviour
         sb.AddSanity(investigator.data.maxSanity);
         sb.AddStamina(investigator.data.maxStamina);
     }
+
+    public void UpdateStamina(int delta)
+    {
+        if (delta < 0) sb.RemoveStamina(Mathf.Abs(delta));
+        else sb.AddStamina(delta);
+    }
+
+    public void UpdateSanity(int delta)
+    {        
+        if (delta < 0) sb.RemoveSanity(Mathf.Abs(delta));
+        else sb.AddSanity(delta);
+    }
 }

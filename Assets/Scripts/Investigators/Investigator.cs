@@ -84,6 +84,28 @@ public class Investigator : MonoBehaviour
     private void Update()
     {
     }
+
+    /**
+     * Amount: int representing the amount of change from 0
+     * Example: Investigator takes 2 damage, so amount would be -2
+     * Investigator heals 1 health, so amount would be 1
+     */
+    public void UpdateStamina(int amount)
+    {
+        data.currentStamina += amount;
+        uiController.UpdateStamina(amount);
+    }
+
+    /**
+     * Amount: int representing the amount of change from 0
+     * Example: Investigator takes 2 damage, so amount would be -2
+     * Investigator heals by 1, so amount would be 1
+     */
+    public void UpdateSanity(int amount)
+    {
+        data.currentSanity += amount;
+        uiController.UpdateSanity(amount);
+    }
 }
     /*
     [Header("Investigator Info")]

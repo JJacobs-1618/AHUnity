@@ -82,8 +82,8 @@ public class Monster : MonoBehaviour
                 dest = CurrentLocation.blackConnection.blackConnection;
                 break;
             case MonsterMovementType.Unique:
-                // PerformUniqueMovement();
-                break;
+                PerformUniqueMovement();
+                return;
             case MonsterMovementType.Flying:
                 // check if they are in the sky or if there is an investigator in an adjacent street/location.
                     // if so, move to investigator with lowest sneak                
@@ -103,6 +103,11 @@ public class Monster : MonoBehaviour
         CurrentLocation = dest;
     }
 
+    private void PerformUniqueMovement()
+    {
+        data.ability.Execute();
+    }
+
     public void MoveWhite()
     {
         // if there is an investigator in this area, stay put.
@@ -118,8 +123,8 @@ public class Monster : MonoBehaviour
                 dest = CurrentLocation.whiteConnection.whiteConnection;
                 break;
             case MonsterMovementType.Unique:
-                // PerformUniqueMovement();
-                break;
+                PerformUniqueMovement();
+                return;
             case MonsterMovementType.Flying:
                 // check if they are in the sky or if there is an investigator in an adjacent street/location.
                 // if so, move to investigator with lowest sneak                

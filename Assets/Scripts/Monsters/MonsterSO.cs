@@ -12,6 +12,7 @@ public class MonsterSO : ScriptableObject
     public DimensionSymbolType Symbol;
     public MonsterMovementType MovementType;
     [Header("Monster Abilities")]
+    public A_Ability ability;
     public bool Ambush;
     public bool Endless;
     public bool PhysicalResistance;

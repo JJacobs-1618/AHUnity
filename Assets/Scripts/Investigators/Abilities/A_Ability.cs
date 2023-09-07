@@ -2,16 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class A_Ability : MonoBehaviour
+public abstract class A_Ability : ScriptableObject
 {
     [SerializeField] public string abilityName;
     [SerializeField] public string abilityDescription;
     [SerializeField] public GamePhase phaseType;
 
-    protected virtual void Execute()
-    {
-        
-    }
+    public abstract void Execute();
 }
 
 public enum AbilityPhase

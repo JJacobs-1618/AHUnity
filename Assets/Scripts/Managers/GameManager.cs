@@ -274,6 +274,11 @@ public class GameManager : MonoBehaviour
         investigatorRefs.Remove(investigator.GetComponent<Investigator>());
         Destroy(investigator);
     }
+
+    public List<Investigator> CurrentInvestigators
+    {
+        get => investigatorRefs;
+    }
 }
     /*
     public static GameManager instance;
