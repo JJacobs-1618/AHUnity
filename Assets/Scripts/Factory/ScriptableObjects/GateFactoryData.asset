@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef12290f67e44694a904a311e21b5ac0, type: 3}
+  m_Name: GateFactoryData
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 11400000, guid: 91c9a64f2453aaa4dae3b4b730ed9d1d, type: 2}
+  - {fileID: 11400000, guid: b0a44c49a6c0ba9478c5a4bae3ec5d77, type: 2}
+  - {fileID: 11400000, guid: cbda33e765447d448b8270ed549de421, type: 2}
+  - {fileID: 11400000, guid: d5fd8eef00233b049b3b1fa8a80822c0, type: 2}
+  - {fileID: 11400000, guid: d2b7a87b03f8adb4882b857cb260dcf0, type: 2}
+  - {fileID: 11400000, guid: 190f2f5b09fc1a44b91a82358a3a05bd, type: 2}
+  - {fileID: 11400000, guid: 08b2d2b8923a86e4d998f0a89beed7ef, type: 2}
+  - {fileID: 11400000, guid: 822f1633aa63cb4499afee17ea70f935, type: 2}

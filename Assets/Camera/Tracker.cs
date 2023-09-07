@@ -15,29 +15,29 @@ public class Tracker : MonoBehaviour, InputActions.ICameraActions
     private Vector3 trackerPositionOffset = new Vector3(0.0f, 1.75f, 0.0f);
     private Vector3 trackerRotationOffset = new Vector3(-60.0f, 0.0f, 0.0f);
     // Place the Camera 15 units above the tracker
-    private Vector3 cameraPositionOffset = new Vector3(0.0f, 15.0f, 0.0f);
-    private Vector3 cameraRotationOffset = new Vector3(90.0f, 0.0f, 0.0f);
+    //private Vector3 cameraPositionOffset = new Vector3(0.0f, 15.0f, 0.0f);
+    //private Vector3 cameraRotationOffset = new Vector3(90.0f, 0.0f, 0.0f);
     
     // Camera Movement Settings
     [SerializeField] private float moveSpeed = 5.0f;
     [SerializeField] private float zoomSpeed = 5.0f;
-    [SerializeField] private float hRotSpeed = 75.0f;
-    [SerializeField] private float vRotSpeed = 75.0f;
+    //[SerializeField] private float hRotSpeed = 75.0f;
+    //[SerializeField] private float vRotSpeed = 75.0f;
     private Vector2 movement;
-    private Vector3 motion;
+    //private Vector3 motion;
     // Prevents rotation if the Right Mouse Button is not currently pressed.
     private bool canRotate = false;
 
     public float minZoomDistance = 15.0f;
     public float maxZoomDistance = 90.0f;
-    private Vector2 mouseDelta;
+    //private Vector2 mouseDelta;
 
     [SerializeField] private GameObject currentActiveEntity; // TODO: access the selected character
 
     public float deltaYaw;
     public float deltaPitch;
-    private readonly float minRotClamp = -85.0f;
-    private readonly float maxRotClamp = -0.5f;
+    //private readonly float minRotClamp = -85.0f;
+    //private readonly float maxRotClamp = -0.5f;
 
     // Camera test
     [SerializeField] CinemachineFreeLook vc;

@@ -22,7 +22,8 @@ public class GameBoard : MonoBehaviour
     // public SkillDeck skills;
     // public AllyDeck allies;
 
-    public MonsterFactory mf;
+    private MonsterFactory mf;
+    private GateFactory gf;
     private List<Location> locationRefs;
     private List<Street> streetRefs;
     //private List<> otherWorlds;
@@ -32,17 +33,6 @@ public class GameBoard : MonoBehaviour
     public List<Monster> monstersInPlay;
     public List<Monster> monstersInOutskirts;
 
-    public void SpawnMonster()
-    {
-        // Create a new gameobject to hold the monster
-        GameObject monsterGO = mf.GetNewInstance().gameObject;
-        Monster monster = monsterGO.GetComponent<Monster>();
-        monsterGO.name = $"Monster ({monster.data.MonsterName})";
-        Location testingLocation = GetLocation("Independence Square");
-        monsterGO.transform.position = testingLocation.transform.position + new Vector3(0, 1, 0); //TODO: Spawn Where Needed
-        monster.CurrentLocation = testingLocation;
-        monstersInPlay.Add(monster);
-    }
 
     private bool isInitialized;
 
@@ -57,6 +47,12 @@ public class GameBoard : MonoBehaviour
         }
         monstersInPlay = new();
         monstersInOutskirts = new();
+    }
+
+    private void Start()
+    {
+        gf = GateFactory.instance;
+        mf = MonsterFactory.instance;
     }
 
     public void GetReachableTiles(NeighborhoodTile tile, int movementPoints, int currStep, ref Dictionary<NeighborhoodTile, int> returnDict)
@@ -115,6 +111,8 @@ public class GameBoard : MonoBehaviour
         }
         GetGameTileReferences();
         SetCluesOnUnstableLocations();
+        // InitDecks();
+        mythos.Init();
         isInitialized = true;
     }
 
@@ -127,6 +125,13 @@ public class GameBoard : MonoBehaviour
             
         foreach (GameObject go in streets)
             streetRefs.Add(go.GetComponent<Street>());
+
+        foreach (Location lts in locationRefs)
+        {
+            ((LocationTileSO)lts.data).isGateAtLocation = false;
+            ((LocationTileSO)lts.data).isClosed = false;
+        }
+            
         //foreach (GameObject go in otherWorlds)
         //streetRefs.Add(go.GetComponent<Street>());
     }
@@ -183,6 +188,36 @@ public class GameBoard : MonoBehaviour
         Location l = GetLocation(location);
         LocationTileSO tileData = (LocationTileSO)l.data;
         if (tileData.isClosed) tileData.isClosed = false;
+    }
+
+    internal bool SpawnGate(MythosCardSO mythos)
+    {
+        Location l = GetLocation(mythos.GateAppears.gameTileName);
+        LocationTileSO tileData = (LocationTileSO)l.data;
+        if (tileData.isGateAtLocation)
+        {
+            Debug.Log("Monster Surge.");
+            return false; // false indicates monster surge
+        }
+        
+
+        Gate gate = gf.GetNewInstance();
+        gate.gameObject.name = $"Gate ({gate.data.gateName}";
+        Debug.Log($"Gate Spawning at {mythos.GateAppears.gameTileName})");
+        gate.gameObject.transform.position = l.transform.position + new Vector3(0, 1, 0);
+        tileData.isGateAtLocation = true;
+
+        return true;
+    }
+    public void SpawnMonster(Location location)
+    {
+        // Create a new gameobject to hold the monster
+        GameObject monsterGO = mf.GetNewInstance().gameObject;
+        Monster monster = monsterGO.GetComponent<Monster>();
+        monsterGO.name = $"Monster ({monster.data.MonsterName})";
+        monsterGO.transform.position = location.transform.position + new Vector3(0, 1, 0); //TODO: Spawn Where Needed
+        monster.CurrentLocation = location;
+        monstersInPlay.Add(monster);
     }
 }
     /*

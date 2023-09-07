@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90c54777ad6bea143886db2067f0f8bc, type: 3}
+  m_Name: MythosDeckData
+  m_EditorClassIdentifier: 
+  cards:
+  - {fileID: 11400000, guid: f5bb9ce4dafb651489209a2a0733b288, type: 2}
+  - {fileID: 11400000, guid: 72388c4c0a5ddde4596ae2390a37ffd2, type: 2}
+  - {fileID: 11400000, guid: 2ba176befa710f447812b1ffa50ce7dd, type: 2}
+  - {fileID: 11400000, guid: 910edacddeca9fd448e4d66ed42101bd, type: 2}
+  - {fileID: 11400000, guid: cd13b3f5851c8124bbc950c5df6b9511, type: 2}
+  - {fileID: 11400000, guid: 6969516b30fa45245aa6ba9813840f1f, type: 2}

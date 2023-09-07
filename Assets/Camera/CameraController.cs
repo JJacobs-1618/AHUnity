@@ -6,12 +6,6 @@ using UnityEngine.InputSystem;
 public class CameraController : MonoBehaviour, InputActions.ICameraActions
 {
     [SerializeField] Camera main;
-    [SerializeField] bool canRotateCamera;
-
-    public CameraController()
-    {
-        this.canRotateCamera = false;
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +31,6 @@ public class CameraController : MonoBehaviour, InputActions.ICameraActions
 
     public void OnRotateCamera(InputAction.CallbackContext context)
     {
-        if (context.performed) { canRotateCamera = true; }
-        if (context.canceled) { canRotateCamera = false; }
+        
     }
 }

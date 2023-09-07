@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d5d173fe3e0b14db345d0459a783c6, type: 3}
+  m_Name: MTH_BG_IllWindGripsArkham
+  m_EditorClassIdentifier: 
+  cardName: Ill Wind Grips Arkham!
+  flavorText: 
+  subtype: 0
+  mythosAbilityText: The first player must pass a <b>Luck (-1) check</b> or be <i>Cursed.</i>
+  gateAppears: {fileID: 11400000, guid: 08d69dba230140f449b458ff6171aa5a, type: 2}
+  clueAppears: {fileID: 11400000, guid: c36820621a2d923439d135fc5a6dddc8, type: 2}
+  blackMovers: 040000000800000007000000
+  whiteMovers: 06000000

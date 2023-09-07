@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class FollowCamera : MonoBehaviour
 {
-    [SerializeField] Transform camera;
+    [SerializeField] Transform m_Camera;
     void Start()
     {
-        if (camera == null) camera = Camera.main.transform;
+        if (m_Camera == null) m_Camera = Camera.main.transform;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        this.transform.LookAt(camera);
+        this.transform.LookAt(m_Camera);
     }
 }

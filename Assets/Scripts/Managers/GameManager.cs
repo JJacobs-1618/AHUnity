@@ -139,33 +139,33 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         ResetInvestigatorPhaseSwitches();
-        Debug.Log($"Round{round}: Initial Mythos Phase Starting");
+        Debug.Log($"Round {round}: Initial Mythos Phase Starting");
         // Draw and Resolve Initial Mythos per rules
-        Debug.Log($"Round{round}: Initial Mythos Phase Ending. Going to Upkeep...");
+        Debug.Log($"Round {round}: Initial Mythos Phase Ending. Going to Upkeep...");
         round++;
         pm.UpdateGamePhase(GamePhase.Upkeep);
     }
 
     private IEnumerator HandleUpkeep()
     {
-        Debug.Log($"Round{round}: Upkeep Phase Begins");
+        Debug.Log($"Round {round}: Upkeep Phase Begins");
         yield return new WaitForSeconds(1.5f);
         // Get currentPlayer and perform upkeep
         // if(investigatorRefs.investigatorData.hasPerformedUpkeep) pm.UpdateGamePhase(GamePhase.Movement);
         //investigatorRefs[currentPlayerIndex].PerformUpkeep();
         // Investigator handles change in phase
-        Debug.Log($"Round{round}: Upkeep Phase Ending. Going to Movement...");
+        Debug.Log($"Round {round}: Upkeep Phase Ending. Going to Movement...");
         pm.UpdateGamePhase(GamePhase.Movement);
     }
 
     public IEnumerator HandleMovement()
     {
-        Debug.Log($"Round{round}: Movement Phase Begins");
+        Debug.Log($"Round {round}: Movement Phase Begins");
         yield return new WaitForSeconds(1.5f);
         Investigator current = investigatorRefs[currentPlayerIndex];
         if (current.data.hasPerformedMovement) // If the current player has moved, this should logically be the first player again. 
         {
-            Debug.Log($"Round{round}: Movement Phase Ending. Beginning Arkham Encounter Phase...");
+            Debug.Log($"Round {round}: Movement Phase Ending. Beginning Arkham Encounter Phase...");
             currentPlayerIndex = firstPlayerIndex;
             pm.UpdateGamePhase(GamePhase.ArkhamEncounter);
             yield break;
@@ -175,34 +175,74 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator HandleArkhamEncounter()
     {
-        Debug.Log($"Round{round}: Arkham Encounter Phase Begins");
+        Debug.Log($"Round {round}: Arkham Encounter Phase Begins");
         yield return new WaitForSeconds(1.5f);
-        Debug.Log($"Round{round}: Arkham Encounter Phase Ending. Beginning Other World Encounter Phase...");
+        Debug.Log($"Round {round}: Arkham Encounter Phase Ending. Beginning Other World Encounter Phase...");
         pm.UpdateGamePhase(GamePhase.OtherWorldEncounter);
     }
 
     private IEnumerator HandleOtherWorldEncounter()
     {
-        Debug.Log($"Round{round}: Other World Encounter Phase Begins");
+        Debug.Log($"Round {round}: Other World Encounter Phase Begins");
         yield return new WaitForSeconds(1.5f);
-        Debug.Log($"Round{round}: Other World Encounter Phase Ending. Beginning Mythos Phase...");
+        Debug.Log($"Round {round}: Other World Encounter Phase Ending. Beginning Mythos Phase...");
         pm.UpdateGamePhase(GamePhase.Mythos);
     }
 
     private IEnumerator HandleMythos()
     {
-        Debug.Log($"Round{round}: Mythos Phase Begins");
-        yield return new WaitForSeconds(1.5f);
-        foreach (Monster m in gb.monstersInPlay)
+        Debug.Log($"Round {round}: Mythos Phase Begins");
+        // Draw and reveal card
+        Card card = gb.mythos.DrawCard();        
+        MythosCardSO mythos = (MythosCardSO)card.data;
+        while (mythos.cardName == "The Story Continues...")
         {
-            m.MoveBlack();
+            gb.mythos.TheStoryContinues();
+            card = gb.mythos.DrawCard();
+            mythos = (MythosCardSO)card.data;
         }
+        yield return new WaitForSeconds(1.5f);
+        OpenGateAndSpawnMonster(mythos);
+        yield return new WaitForSeconds(1.5f);
+        PlaceClueToken(mythos.clueAppears);
+        yield return new WaitForSeconds(1.5f);
+        MoveMonsters(mythos.whiteMovers, mythos.blackMovers);
+        // yield return new WaitForSeconds(1.5f);
+        // ActivateMythosAbility(MythosAbility mythos.data.Ability);
         // First Player draws and resolves a mythos card
         firstPlayerIndex = (firstPlayerIndex + 1) % investigators.Count;
         Debug.Log($"Investigator {firstPlayerIndex}: {investigatorRefs[firstPlayerIndex].data.investigatorName} is now first player.");
-        Debug.Log($"Round{round}: Mythos Phase Ending. Beginning round {round+1}");
+        Debug.Log($"Round {round}: Mythos Phase Ending. Beginning round {round+1}");
         pm.UpdateGamePhase(GamePhase.NextRound);
     }
+
+    private void PlaceClueToken(LocationTileSO clueAppears)
+    {
+        clueAppears.clueTokens++;
+    }
+
+    private void OpenGateAndSpawnMonster(MythosCardSO mythos)
+    {
+        if (gb.SpawnGate(mythos))
+        {
+            gb.SpawnMonster(gb.GetLocation(mythos.GateAppears.gameTileName));
+        }
+    }
+
+    private void MoveMonsters(List<DimensionSymbolType> white, List<DimensionSymbolType> black)
+    {
+        foreach (Monster m in gb.monstersInPlay)
+        {
+            if (white.Contains(m.data.Symbol))
+            {
+                m.MoveWhite();
+            } else if (black.Contains(m.data.Symbol))
+            {
+                m.MoveBlack();
+            }
+        }
+    }
+
     private IEnumerator HandleNextRound()
     {
         yield return new WaitForSeconds(1.5f);

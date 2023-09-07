@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d5d173fe3e0b14db345d0459a783c6, type: 3}
+  m_Name: MTH_BG_TheStoryContinues
+  m_EditorClassIdentifier: 
+  cardName: The Story Continues...
+  flavorText: "<i>I cannot remember. I <b>must</b> not remember what I saw on that
+    dark and foreboading night...</i>\t\t"
+  subtype: 3
+  mythosAbilityText: Shuffle the mythos deck, being sure to include this card in
+    it. After the deck is shuffled, draw a new mythos card for the turn.
+  gateAppears: {fileID: 0}
+  clueAppears: {fileID: 0}
+  blackMovers: 
+  whiteMovers: 
