@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dad00529fe2bbaf43b57a85d6e75d164, type: 3}
-  m_Name: ABI_HoundOfTindalos
+  m_Script: {fileID: 11500000, guid: 4e0c86fdaeaf51546a04c655f3617372, type: 3}
+  m_Name: ABI_Test
   m_EditorClassIdentifier: 
-  abilityName: 
-  abilityDescription: 
-  phaseType: 0
+  abilityName: Testing
+  abilityDescription: Testing
+  phaseType: 4

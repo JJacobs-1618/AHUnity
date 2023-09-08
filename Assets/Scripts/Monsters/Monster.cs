@@ -105,7 +105,7 @@ public class Monster : MonoBehaviour
 
     private void PerformUniqueMovement()
     {
-        data.ability.Execute();
+        data.ability.Execute(this.gameObject);
     }
 
     public void MoveWhite()

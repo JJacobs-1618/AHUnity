@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4611524c525f8f49b1c2fcc9100e60f, type: 3}
   m_Name: TestAbilityFactory
   m_EditorClassIdentifier: 
-  prefabs: []
+  prefabs:
+  - {fileID: 11400000, guid: ea3a5218097d5d34dad9d468a8d842c4, type: 2}

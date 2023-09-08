@@ -10,28 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 290259845ed5acb498113d55b0ee4041, type: 3}
-  m_Name: HoundOfTindalos
+  m_Name: TestMonster
   m_EditorClassIdentifier: 
-  MonsterName: Hound of Tindalos
-  FlavorText: When it moves, the Hounds of Tindalos moves directly to the nearest
-    investigator inside a location in Arkham (Other than the Hospital or Asylum.)
-  Awareness: -1
+  MonsterName: Testing Monster
+  FlavorText: <i>It's form was constantly shifting, as if it didn't know what it
+    wanted to be. But I knew... no... I could <b>feel</b> that it hungered...</i>
+  Awareness: 5
   Symbol: 0
   MovementType: 3
   ability: {fileID: 11400000, guid: c1456ba1278ea7145b54325b12e40aa5, type: 2}
-  Ambush: 0
-  Endless: 0
-  PhysicalResistance: 0
-  MagicalResistance: 0
+  Ambush: 1
+  Endless: 1
+  PhysicalResistance: 1
+  MagicalResistance: 1
   PhysicalImmunity: 1
-  MagicalImmunity: 0
+  MagicalImmunity: 1
   Nightmarish: 0
   NightmarishDamage: 0
   Overwhelming: 0
   OverwhelmingDamage: 0
   Undead: 0
-  HorrorRating: -2
-  HorrorDamage: 4
+  HorrorRating: 2
+  HorrorDamage: 2
   Toughness: 2
-  CombatDamage: 3
-  CombatRating: -1
+  CombatDamage: 2
+  CombatRating: 2

@@ -12,7 +12,6 @@ public class Investigator : MonoBehaviour
     private InvestigatorUIController uiController;
 
     private GameBoard gb;
-    public NeighborhoodTile currentLocation;
 
 
     private void Awake()

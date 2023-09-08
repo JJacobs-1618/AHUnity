@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class A_Ability : ScriptableObject
 {
-    [SerializeField] public string abilityName;
-    [SerializeField] public string abilityDescription;
-    [SerializeField] public GamePhase phaseType;
+    public string abilityName;
+    public string abilityDescription;
+    public GamePhase phaseType;
+    
 
-    public abstract void Execute();
+    public abstract void Execute(GameObject self);
 }
 
 public enum AbilityPhase
